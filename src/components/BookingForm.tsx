@@ -467,13 +467,13 @@ END:VCALENDAR`;
                   rows={3}
                   value={intentions}
                   onChange={(e) => setIntentions(e.target.value)}
-                  placeholder="Briefly describe what life transition, dream, or ancestral question you wish to explore..."
+                  placeholder="Briefly describe what life crossroads you wish to consult on (e.g., career direction, job promotion, reconciling harmony with a loved one, business empowerment, or ancestral remembrance)..."
                   className="w-full px-3.5 py-2.5 text-xs bg-[#FAF7F2] border border-[#D4AF37]/40 rounded-xl text-[#142B1A] focus:outline-none focus:ring-1 focus:ring-[#D4AF37]"
                 />
               </div>
             </div>
 
-            {/* Step 4: Mandatory Ethical & Medical Disclaimer Consent */}
+            {/* Step 4: Mandatory Ethical & Consultation Consent */}
             <div className="space-y-3 pt-2 border-t border-[#EAE2D3] bg-[#F4EFE6] p-4 rounded-2xl border border-[#D4AF37]/30">
               <div className="flex items-start gap-3">
                 <input
@@ -484,7 +484,7 @@ END:VCALENDAR`;
                   className="mt-1 h-4 w-4 rounded border-[#D4AF37] text-[#142B1A] focus:ring-[#D4AF37] accent-[#142B1A] cursor-pointer"
                 />
                 <label htmlFor="consentMedical" className="text-xs text-[#3E342D] leading-relaxed cursor-pointer">
-                  <strong>Mandatory Ethical & Medical Acknowledgment:</strong> I understand that spiritual guidance, ancestral consultations, and herbal education provided by Gifted Roots do not replace qualified medical, psychiatric, or mental health care. I acknowledge that no supernatural outcomes, guaranteed fortunes, or medical cures are promised.
+                  <strong>Consultation Scope & Care Acknowledgment:</strong> I understand that Gifted Roots provides traditional spiritual discernment and ancestral life balance consultations, which are distinct from and do not replace licensed medical, clinical, or psychological therapy.
                 </label>
               </div>
               {errors.consentMedical && (

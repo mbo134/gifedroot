@@ -118,9 +118,12 @@ export const BOTANICALS: BotanicalItem[] = [
     traditionalName: 'Helichrysum odoratissimum',
     botanicalName: 'Helichrysum species',
     region: 'Southern & Eastern Africa',
+    category: 'ceremonial',
     significance: 'Considered among the most revered ceremonial plants in African traditional spiritual practice.',
     traditionalUse: 'Burned as a fragrant incense to clear negative atmospheres, induce calm contemplation, and invite peaceful ancestral communion.',
-    wisdomNote: 'Emits a warm, sweet, herbaceous smoke known to quiet racing thoughts and settle an uneasy home.'
+    wisdomNote: 'Emits a warm, sweet, herbaceous smoke known to quiet racing thoughts and settle an uneasy home.',
+    placementTip: 'Burn in an earthen ceramic vessel with good ventilation during quiet contemplation.',
+    energyQuality: 'Purification, calm presence, and ancestral peace.'
   },
   {
     id: 'artemisia-afra',
@@ -128,9 +131,12 @@ export const BOTANICALS: BotanicalItem[] = [
     traditionalName: 'Lengana / Umhlonyane',
     botanicalName: 'Artemisia afra',
     region: 'Southern & East Africa',
+    category: 'ceremonial',
     significance: 'Known as a stalwart protector in indigenous homesteads, prized for its bitter, invigorating aroma.',
     traditionalUse: 'Traditionally used in aromatic herbal steams to clear the senses and invigorate tired spirits after long journeys.',
-    wisdomNote: 'Taught by elders as a reminder of resilience: bitter on the tongue, but deeply strengthening to the spirit.'
+    wisdomNote: 'Taught by elders as a reminder of resilience: bitter on the tongue, but deeply strengthening to the spirit.',
+    placementTip: 'Dried bundles hung above doorways or steeped into aromatic steam baths.',
+    energyQuality: 'Resilience, sensory clarity, and energetic protection.'
   },
   {
     id: 'baobab',
@@ -138,9 +144,12 @@ export const BOTANICALS: BotanicalItem[] = [
     traditionalName: 'Mbuyu / Adansonia digitata',
     botanicalName: 'Adansonia digitata',
     region: 'Sub-Saharan African Savannas',
+    category: 'ceremonial',
     significance: 'The majestic sentinel tree beneath which village councils, elder councils, and spiritual assemblies meet.',
     traditionalUse: 'Bark fibers for sacred cords; dried fruit pulp mixed into cooling refreshments during long pilgrimages.',
-    wisdomNote: 'Symbolizes immense patience, ancient memory, and the power of water held in drought.'
+    wisdomNote: 'Symbolizes immense patience, ancient memory, and the power of water held in drought.',
+    placementTip: 'Honored in open communal courtyards or carved wooden focal items.',
+    energyQuality: 'Endurance, intergenerational memory, and patient expansion.'
   },
   {
     id: 'moringa',
@@ -148,9 +157,12 @@ export const BOTANICALS: BotanicalItem[] = [
     traditionalName: 'Nebedaye (Never Die)',
     botanicalName: 'Moringa oleifera',
     region: 'Western & Central Africa',
+    category: 'ceremonial',
     significance: 'Revered as the miraculous green gift of the earth that flourishes in harsh arid climates.',
     traditionalUse: 'Leaves dried for nourishing daily tea infusions and cultural rituals of vitality and perseverance.',
-    wisdomNote: 'Reminds us that true vitality comes from adaptability and giving generously to all around us.'
+    wisdomNote: 'Reminds us that true vitality comes from adaptability and giving generously to all around us.',
+    placementTip: 'Grown in sunny home gardens or kept dried in earthenware pantry jars.',
+    energyQuality: 'Vitality, generous renewal, and persistent life force.'
   },
   {
     id: 'luban',
@@ -158,9 +170,12 @@ export const BOTANICALS: BotanicalItem[] = [
     traditionalName: 'Luban / Olibanum',
     botanicalName: 'Boswellia sacra / frereana',
     region: 'Horn of Africa (Somalia, Ethiopia)',
+    category: 'ceremonial',
     significance: 'Harvested from sacred desert trees, traded for millennia across ancestral spiritual routes.',
     traditionalUse: 'Burned on glowing charcoal during sacred ceremonies, morning prayers, and deep meditative stillness.',
-    wisdomNote: 'Its citrusy-pine smoke rises straight upward, symbolizing pure intentions rising to the heavens.'
+    wisdomNote: 'Its citrusy-pine smoke rises straight upward, symbolizing pure intentions rising to the heavens.',
+    placementTip: 'Ignited gently in prayer alcoves or sanctuary hearths.',
+    energyQuality: 'Spiritual elevation, sacred focus, and solemn reverence.'
   },
   {
     id: 'rooibos',
@@ -168,9 +183,77 @@ export const BOTANICALS: BotanicalItem[] = [
     traditionalName: 'Aspalathus linearis',
     botanicalName: 'Aspalathus linearis',
     region: 'Cederberg Region, South Africa',
+    category: 'ceremonial',
     significance: 'Gift of the indigenous Khoisan peoples, naturally free of stimulants and deeply calming.',
     traditionalUse: 'Brewed as an evening communion tea to foster gentle storytelling, family warmth, and rest.',
-    wisdomNote: 'A gentle teacher of rest: nourishment does not need to agitate or rush the heartbeat.'
+    wisdomNote: 'A gentle teacher of rest: nourishment does not need to agitate or rush the heartbeat.',
+    placementTip: 'Served warm in handmade clay cups during evening family gatherings.',
+    energyQuality: 'Communal harmony, nervous system balance, and gentle warmth.'
+  },
+  {
+    id: 'pilea-peperomioides',
+    name: 'Pilea Peperomioides (Chinese Money Plant)',
+    traditionalName: 'Coin Plant / Pancake Plant / Pass-It-On Plant',
+    botanicalName: 'Pilea peperomioides',
+    region: 'Montane Flora & Global Homesteads',
+    category: 'abundance',
+    significance: 'Celebrated worldwide for its bright, coin-shaped circular leaves that symbolize wealth circulation, good fortune, and joyful abundance.',
+    traditionalUse: 'Placed in home workrooms, entry consoles, and family desks to welcome prosperous energy. Traditionally, small offshoots (pups) are gifted to loved ones to multiply blessings in both homes.',
+    wisdomNote: 'Often called the "power plant of generosity": as it sprouts new offsets, sharing them creates an unbroken cycle of good fortune.',
+    placementTip: 'Position in bright, indirect sunlight near the home office desk, study, or main foyer.',
+    energyQuality: 'Active circulation, financial optimism, and friendly reciprocity.'
+  },
+  {
+    id: 'crassula-ovata',
+    name: 'Crassula Ovata (Jade Plant / Lucky Money Plant)',
+    traditionalName: 'Friendship Tree / Dollar Succulent',
+    botanicalName: 'Crassula ovata',
+    region: 'Indigenous to Southern Africa',
+    category: 'abundance',
+    significance: 'A sacred succulent native to Southern Africa featuring plump, glossy jade-green leaves resembling ancient gemstone coins, representing steady accumulation and long-term financial growth.',
+    traditionalUse: 'Kept near business doorways, shop entrances, and accounting areas to anchor enduring prosperity and ward off financial depletion.',
+    wisdomNote: 'The jade leaf hoards moisture patiently during arid seasons; it teaches that wealth built on consistency outlasts sudden whims.',
+    placementTip: 'Set on the southeast abundance corner of a room or right inside the primary doorway.',
+    energyQuality: 'Steadfast security, grounded wealth, and evergreen resilience.'
+  },
+  {
+    id: 'pachira-aquatica',
+    name: 'Pachira Aquatica (The Braided Money Tree)',
+    traditionalName: 'Malabar Chestnut / Provision Tree',
+    botanicalName: 'Pachira aquatica',
+    region: 'Tropical Riverbeds & Global Sanctuaries',
+    category: 'abundance',
+    significance: 'Renowned for its distinctive braided stem and five-lobed green palmate leaves that symbolize the five foundational elements (Wood, Fire, Earth, Metal, Water) in harmonious union.',
+    traditionalUse: 'Cultivated in central living spaces, meditation chambers, and creative offices to balance conflicting energy and open channels for financial clarity.',
+    wisdomNote: 'Five strands braided together bend without breaking; it reminds us that diverse talents woven together manifest true prosperity.',
+    placementTip: 'Place in medium-to-bright filtered daylight in the living room or family gathering hub.',
+    energyQuality: 'Elemental balance, holistic prosperity, and protective vitality.'
+  },
+  {
+    id: 'plectranthus-verticillatus',
+    name: 'Plectranthus Verticillatus (African Money Plant)',
+    traditionalName: 'Swedish Ivy / Spurflower / Prosperity Vine',
+    botanicalName: 'Plectranthus verticillatus',
+    region: 'Indigenous to Southern & Eastern Africa',
+    category: 'abundance',
+    significance: 'A vigorous native African perennial famous for lush trailing emerald leaves and delicate white-to-lavender blossoms, long kept in home verandas as an emblem of continuous ease and domestic blessings.',
+    traditionalUse: 'Suspended in hanging baskets near entrance porches and kitchen windows so positive energy flows freely through the household.',
+    wisdomNote: 'It roots eagerly wherever it touches rich earth, demonstrating that fertile ground and an open spirit naturally attract abundance.',
+    placementTip: 'Hang in a bright window alcove or veranda where vines can cascade gracefully.',
+    energyQuality: 'Flowing blessings, fertile expansion, and household warmth.'
+  },
+  {
+    id: 'epipremnum-aureum',
+    name: 'Golden Pothos (Devil’s Ivy / Golden Money Vine)',
+    traditionalName: 'Golden Hunter / Ceylon Creeper',
+    botanicalName: 'Epipremnum aureum',
+    region: 'Tropical Habitats & Global Sanctuaries',
+    category: 'abundance',
+    significance: 'Heart-shaped variegated green-and-gold leaves that actively cleanse stagnant household energy and uplift the spirit with persistent, climbing vitality.',
+    traditionalUse: 'Draped along high shelves, room dividers, and computer desks to transmute heavy electromagnetic tension and channel upward creative and financial momentum.',
+    wisdomNote: 'Its tenacious vines reach continually toward light, inspiring the household to remain hopeful and unyielding in times of change.',
+    placementTip: 'Rest on a high bookshelf or north/east window ledge to let the golden vines trail downward.',
+    energyQuality: 'Air purification, uplifting vibrancy, and upward financial momentum.'
   }
 ];
 

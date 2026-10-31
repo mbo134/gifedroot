@@ -18,9 +18,12 @@ export interface BotanicalItem {
   traditionalName: string;
   botanicalName: string;
   region: string;
+  category?: 'ceremonial' | 'abundance';
   significance: string;
   traditionalUse: string;
   wisdomNote: string;
+  placementTip?: string;
+  energyQuality?: string;
 }
 
 export interface TestimonialItem {

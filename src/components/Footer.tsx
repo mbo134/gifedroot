@@ -209,14 +209,14 @@ export const Footer: React.FC<FooterProps> = ({
           </button>
         </div>
 
-        {/* Full Mandatory Medical & Mental Health Disclaimer */}
+        {/* Full Mandatory Consultation Scope & Healthcare Disclaimer */}
         <div className="p-5 bg-[#0A160D] rounded-2xl border border-[#D4AF37]/20 text-[11px] text-[#A69785] leading-relaxed space-y-2">
           <div className="flex items-center gap-1.5 font-bold text-[#D4AF37]">
             <ShieldCheck className="w-4 h-4" />
-            <span>Official Ethical & Healthcare Disclaimer</span>
+            <span>Official Spiritual Consultation & Care Policy</span>
           </div>
           <p>
-            Spiritual services, ancestral heritage consultations, and herbal education offered by Gifted Roots are rooted in cultural and traditional holistic philosophy. They are intended for personal enrichment, spiritual balance, and cultural insight. They do not constitute medical, psychological, psychiatric, or legal advice, diagnosis, or treatment. We do not promise supernatural outcomes or medical cures. Always consult a qualified physician or healthcare professional for medical or mental health concerns.
+            Spiritual services, ancestral heritage consultations, and herbal education offered by Gifted Roots provide traditional spiritual discernment, personal alignment, and cultural insight. We consult on life crossroads including career transitions, job promotions, relationship reconciliation and harmony with loved ones, and business empowerment through ancestral wisdom. Our consultations honor traditional African philosophy and do not constitute clinical medical, psychological, psychiatric, or legal advice.
           </p>
         </div>
 
