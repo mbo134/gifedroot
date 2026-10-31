@@ -59,7 +59,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onExploreServices }) 
             {/* Privacy & Ethical Guarantee Notice */}
             <div className="pt-2 flex items-center gap-2 text-xs text-[#C5B8A5]">
               <ShieldCheck className="w-4 h-4 text-[#D4AF37] shrink-0" />
-              <span>100% Confidential · Respectful Cultural Lineage · No Miracle Promises</span>
+              <span>100% Confidential · Respectful Cultural Lineage · Dedicated Ancestral Counsel</span>
             </div>
           </div>
 
@@ -104,10 +104,10 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onExploreServices }) 
 
           <div className="space-y-1">
             <div className="text-xl sm:text-2xl font-serif font-bold text-[#D4AF37]">
-              Strict Ethics
+              Sacred Integrity
             </div>
             <p className="text-xs text-[#D1C6B4] leading-relaxed">
-              No fortune-telling gimmicks or medical cure promises; compassionate discernment.
+              Deep traditional listening, ancestral alignment, and compassionate discernment for life crossroads.
             </p>
           </div>
 
