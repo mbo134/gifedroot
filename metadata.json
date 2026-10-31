@@ -1,0 +1,6 @@
+{
+  "name": "Gifted Roots Spiritual Healer",
+  "description": "Rooted in Tradition. Guided by Wisdom. Focused on Well-Being. Traditional spiritual guidance, ancestral heritage consultations, and herbal education.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
