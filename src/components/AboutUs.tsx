@@ -1,5 +1,7 @@
 import React from 'react';
 import { Compass, BookOpen, Heart, Eye, Sparkles } from 'lucide-react';
+import elderMeditationImg from '../assets/images/ancestral_meditation_elder_1793325508246.jpg';
+import sanctuarySpaceImg from '../assets/images/healer_sanctuary_space_1793325506206.jpg';
 
 export const AboutUs: React.FC = () => {
   return (
@@ -25,7 +27,7 @@ export const AboutUs: React.FC = () => {
           <div className="lg:col-span-6 space-y-6">
             <div className="relative rounded-2xl overflow-hidden border border-[#D4AF37]/30 shadow-lg">
               <img
-                src="/src/assets/images/ancestral_meditation_elder_1793325508246.jpg"
+                src={elderMeditationImg}
                 alt="African spiritual elder seated in serene meditation under tree"
                 referrerPolicy="no-referrer"
                 className="w-full h-[380px] sm:h-[420px] object-cover"
@@ -45,7 +47,7 @@ export const AboutUs: React.FC = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="rounded-xl overflow-hidden border border-[#D4AF37]/30 shadow-sm relative h-48">
                 <img
-                  src="/src/assets/images/healer_sanctuary_space_1793325506206.jpg"
+                  src={sanctuarySpaceImg}
                   alt="Traditional African spiritual consultation sanctuary"
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover"

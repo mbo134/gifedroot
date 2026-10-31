@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Leaf, Info, Sparkles, BookOpen, ShieldCheck } from 'lucide-react';
 import { BOTANICALS } from '../data/spiritualData';
 import { BotanicalItem } from '../types';
+import botanicalsImg from '../assets/images/sacred_herbal_heritage_1793325506737.jpg';
 
 export const BotanicalHeritage: React.FC = () => {
   const [selectedHerb, setSelectedHerb] = useState<BotanicalItem>(BOTANICALS[0]);
@@ -29,7 +30,7 @@ export const BotanicalHeritage: React.FC = () => {
           <div className="lg:col-span-5 space-y-6">
             <div className="rounded-2xl overflow-hidden border-2 border-[#D4AF37]/40 shadow-xl bg-[#0E1E12] relative group">
               <img
-                src="/src/assets/images/sacred_herbal_heritage_1793325506737.jpg"
+                src={botanicalsImg}
                 alt="Traditional African sacred botanicals, dried imphepho bundle, moringa leaves, and aromatic incense resin"
                 referrerPolicy="no-referrer"
                 className="w-full h-[360px] sm:h-[420px] object-cover transition-transform duration-700 group-hover:scale-105"

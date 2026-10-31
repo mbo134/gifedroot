@@ -1,5 +1,6 @@
 import React from 'react';
 import { Calendar, Compass, ShieldCheck, Sparkles, Leaf, ArrowRight } from 'lucide-react';
+import heroRootsImg from '../assets/images/hero_african_roots_1793325506871.jpg';
 
 interface HeroProps {
   onOpenBooking: () => void;
@@ -66,7 +67,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onExploreServices }) 
           <div className="lg:col-span-5 relative">
             <div className="relative rounded-2xl overflow-hidden border-2 border-[#D4AF37]/40 shadow-2xl bg-[#0E1E12] group">
               <img
-                src="/src/assets/images/hero_african_roots_1793325506871.jpg"
+                src={heroRootsImg}
                 alt="Ancient African baobab tree roots embedded deeply in sacred terracotta earth with sunrise forest canopy"
                 referrerPolicy="no-referrer"
                 className="w-full h-[380px] sm:h-[460px] object-cover transition-transform duration-700 group-hover:scale-105"
