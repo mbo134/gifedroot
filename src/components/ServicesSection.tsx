@@ -86,6 +86,57 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
           </div>
         </div>
 
+        {/* Love Protection & Relationship Reconciliation Showcase */}
+        <div className="mb-14 bg-[#FAF7F2] rounded-2xl border border-[#D4AF37]/35 shadow-sm overflow-hidden grid grid-cols-1 lg:grid-cols-12 items-center">
+          <div className="lg:col-span-6 p-6 sm:p-8 lg:p-10 space-y-5 order-2 lg:order-1">
+            <p className="text-xs font-bold uppercase tracking-widest text-[#7A4628]">
+              Relationship Harmony &amp; Sacred Union
+            </p>
+            <h3 className="text-2xl sm:text-3xl font-serif font-bold text-[#142B1A] leading-snug [text-wrap:balance]">
+              We Help with Love Protection &amp; Bringing Back a Lost Lover
+            </h3>
+            <p className="text-sm sm:text-base text-[#4A3D33] leading-relaxed">
+              When distance, outside interference, or painful silence threatens a cherished bond, our ancestral spiritual guidance offers a peaceful sanctuary for restoration. We help protect genuine love against jealousy and negative energy, soothe misunderstandings, and guide estranged partners back toward mutual warmth and commitment.
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1 text-xs text-[#3E342D]">
+              <div className="p-3.5 rounded-xl bg-[#F4EFE6] border border-[#D4AF37]/20">
+                <span className="font-bold text-[#142B1A] block mb-1">
+                  Love Protection &amp; Shielding
+                </span>
+                Clearing external discord, guarding marriage harmony, and nurturing lasting faithfulness at home.
+              </div>
+              <div className="p-3.5 rounded-xl bg-[#F4EFE6] border border-[#D4AF37]/20">
+                <span className="font-bold text-[#142B1A] block mb-1">
+                  Bring Back Lost Lover Guidance
+                </span>
+                Traditional reconciliation prayers and herbal blessing rites to mend rifts and reopen loving dialogue.
+              </div>
+            </div>
+            <div className="pt-2 flex flex-wrap items-center gap-4">
+              <button
+                type="button"
+                onClick={() => onRequestBooking('love-protection-reconciliation')}
+                className="px-5 py-2.5 text-xs sm:text-sm font-semibold text-[#FAF7F2] bg-[#142B1A] hover:bg-[#1B3824] rounded-xl border border-[#D4AF37]/40 shadow-sm transition-colors cursor-pointer"
+              >
+                Request Love Protection &amp; Reconciliation Session
+              </button>
+              <span className="text-xs text-[#7A4628] font-medium">
+                100% Private · Heart-Centered Counsel
+              </span>
+            </div>
+          </div>
+
+          <div className="lg:col-span-6 bg-[#142B1A] order-1 lg:order-2 h-full">
+            <img
+              src="/assets/aistudio/image_7c2d777a_08471a85.jpg"
+              alt="Couple walking hand in hand in traditional African attire beside a forest stream with sacred herbs, candles, and cowrie offerings symbolizing love protection and reconciliation"
+              loading="lazy"
+              referrerPolicy="no-referrer"
+              className="w-full aspect-video lg:h-full object-cover object-center"
+            />
+          </div>
+        </div>
+
         {/* Filter Tabs (Interactive Segmented Control) */}
         <div className="flex justify-center mb-12">
           <div className="inline-flex p-1.5 bg-[#EAE2D3] rounded-2xl border border-[#D4AF37]/30 flex-wrap justify-center gap-1">

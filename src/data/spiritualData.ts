@@ -108,6 +108,24 @@ export const SERVICES: ServiceItem[] = [
     whatToExpect: 'Begins with gentle posture alignment, followed by guided breathing exercises, resonant rhythm meditation, and five minutes of restorative stillness.',
     preparation: 'Sit in a quiet space on a floor cushion or supportive chair. Loosen any restrictive clothing.',
     sacredSymbol: 'Dwennimmen'
+  },
+  {
+    id: 'love-protection-reconciliation',
+    title: 'Love Protection & Bring Back Lover Guidance',
+    category: 'guidance',
+    shortDesc: 'We help with love protection, clearing outside interference, and guiding reconciliation to restore trust and bring back a beloved partner.',
+    fullDesc: 'Relationships face heavy storms from misunderstandings, third-party interference, distance, and emotional fatigue. Through time-honored African spiritual counsel, prayerful cleansing, and ancestral alignment, we help shield committed love, soften hardened hearts, and open the path for heartfelt reconciliation and renewed devotion.',
+    duration: '60 minutes',
+    format: ['Secure Video Call', 'Confidential Phone', 'Sanctuary Visit'],
+    keyBenefits: [
+      'Traditional spiritual protection around committed relationships and marriage',
+      'Guidance and cleansing aimed at restoring communication and bringing back a separated lover',
+      'Clearing jealous interference, emotional distance, and household tension',
+      'Compassionate, confidential counsel rooted in honesty and mutual dignity'
+    ],
+    whatToExpect: 'We listen quietly to the full story of your bond, assess spiritual disharmony or external strain around the relationship, and guide you through ancestral prayer, reconciliation practices, and protective home rituals.',
+    preparation: 'Hold a clear, honest intention for peace, mutual respect, and renewed affection. Keep your partner’s full first name in mind for our quiet reflection.',
+    sacredSymbol: 'Akoma'
   }
 ];
 
