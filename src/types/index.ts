@@ -61,3 +61,66 @@ export interface FaqItem {
   keyTakeaway: string;
   relevantServiceId?: string;
 }
+
+export type ProductCategory =
+  | 'incense-resins'
+  | 'living-plants'
+  | 'sacred-crafts'
+  | 'botanical-blends';
+
+export interface ProductVariant {
+  id: string;
+  label: string;
+  price: number;
+  weightOrSize: string;
+  inStock: boolean;
+}
+
+export interface ProductItem {
+  id: string;
+  name: string;
+  subtitle: string;
+  category: ProductCategory;
+  categoryLabel: string;
+  origin: string;
+  botanicalOrMaterial: string;
+  price: number;
+  availability: 'In Stock' | 'Small Batch';
+  image: string;
+  imageAlt: string;
+  shortDesc: string;
+  culturalStory: string;
+  ritualUse: string;
+  careInstructions: string;
+  variants: ProductVariant[];
+}
+
+export interface CartItem {
+  productId: string;
+  variantId: string;
+  name: string;
+  variantLabel: string;
+  price: number;
+  quantity: number;
+  image: string;
+  origin: string;
+}
+
+export interface OrderRequest {
+  id: string;
+  createdAt: string;
+  items: CartItem[];
+  subtotal: number;
+  shippingFee: number;
+  total: number;
+  fullName: string;
+  email: string;
+  whatsappNumber: string;
+  deliveryMethod: 'courier' | 'sanctuary-pickup';
+  shippingAddress: string;
+  postalCode: string;
+  settlementMethod: 'invoice' | 'pay-on-delivery';
+  blessingNote: string;
+  status: 'Pending Sanctuary Confirmation';
+}
+

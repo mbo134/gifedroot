@@ -25,15 +25,65 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center space-y-4 mb-12">
           <p className="text-xs uppercase tracking-widest text-[#7A4628] font-bold">
-            Sacred Offerings & Consultations
+            Traditional Healing &amp; Spiritual Services
           </p>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#142B1A] tracking-tight">
-            Traditional Services for Clarity & Harmony
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#142B1A] tracking-tight [text-wrap:balance]">
+            Traditional Healing &amp; Spiritual Services for Clarity &amp; Harmony
           </h2>
           <div className="w-16 h-1 bg-[#D4AF37] mx-auto rounded-full" />
           <p className="text-base text-[#4A3D33] leading-relaxed">
-            Every session is conducted with profound reverence for African spiritual lineage, ethical boundaries, and your sovereignty as a seeker.
+            Every traditional healing session and spiritual service is conducted with profound reverence for African ancestral lineage, herbal stewardship, and your dignity as a seeker.
           </p>
+        </div>
+
+        {/* Featured Sanctuary Practice Showcase */}
+        <div className="mb-14 bg-[#FAF7F2] rounded-2xl border border-[#D4AF37]/35 shadow-sm overflow-hidden grid grid-cols-1 lg:grid-cols-12 items-center">
+          <div className="lg:col-span-5 bg-[#142B1A]">
+            <img
+              src="/assets/aistudio/image_34e14c8c_9516ee64.jpg"
+              alt="African traditional healer performing a calm herbal and sacred gourd-rattle spiritual healing session inside an earthen botanical sanctuary"
+              loading="lazy"
+              referrerPolicy="no-referrer"
+              className="w-full aspect-square object-cover object-center"
+            />
+          </div>
+          <div className="lg:col-span-7 p-6 sm:p-8 lg:p-10 space-y-5">
+            <p className="text-xs font-bold uppercase tracking-widest text-[#7A4628]">
+              In-Sanctuary &amp; Guided Traditional Care
+            </p>
+            <h3 className="text-2xl sm:text-3xl font-serif font-bold text-[#142B1A] leading-snug [text-wrap:balance]">
+              Restorative Traditional Healing &amp; Ancestral Spiritual Services
+            </h3>
+            <p className="text-sm sm:text-base text-[#4A3D33] leading-relaxed">
+              Rooted in generations of living African practice, our traditional healing and spiritual services unite sacred herbs, rhythmic gourd sound work, and focused ancestral consultation. Seekers turn to our sanctuary for spiritual alignment, household peace, relationship reconciliation, career transitions, and quiet restoration.
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1 text-xs text-[#3E342D]">
+              <div className="p-3.5 rounded-xl bg-[#F4EFE6] border border-[#D4AF37]/20">
+                <span className="font-bold text-[#142B1A] block mb-1">
+                  Herbal &amp; Ritual Cleansing
+                </span>
+                Dried highland botanicals, aromatic smoke, and earthen vessels used in time-honored harmony rituals.
+              </div>
+              <div className="p-3.5 rounded-xl bg-[#F4EFE6] border border-[#D4AF37]/20">
+                <span className="font-bold text-[#142B1A] block mb-1">
+                  Confidential Spiritual Counsel
+                </span>
+                Unhurried one-on-one spiritual guidance available in person, by voice, or through private video consultation.
+              </div>
+            </div>
+            <div className="pt-2 flex flex-wrap items-center gap-4">
+              <button
+                type="button"
+                onClick={() => onRequestBooking('spiritual-guidance')}
+                className="px-5 py-2.5 text-xs sm:text-sm font-semibold text-[#FAF7F2] bg-[#142B1A] hover:bg-[#1B3824] rounded-xl border border-[#D4AF37]/40 shadow-sm transition-colors cursor-pointer"
+              >
+                Book Traditional Healing &amp; Spiritual Consultation
+              </button>
+              <span className="text-xs text-[#7A4628] font-medium">
+                Sacred Lineage · Herbal Stewardship · Confidential Care
+              </span>
+            </div>
+          </div>
         </div>
 
         {/* Filter Tabs (Interactive Segmented Control) */}

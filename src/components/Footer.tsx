@@ -5,12 +5,16 @@ interface FooterProps {
   onOpenPrivacyPolicy: () => void;
   onOpenBooking: () => void;
   onOpenWhatsApp: () => void;
+  onNavigateHome: (sectionId?: string) => void;
+  onNavigateProducts: () => void;
 }
 
 export const Footer: React.FC<FooterProps> = ({
   onOpenPrivacyPolicy,
   onOpenBooking,
   onOpenWhatsApp,
+  onNavigateHome,
+  onNavigateProducts,
 }) => {
   const [dispatchEmail, setDispatchEmail] = useState('');
   const [dispatchSubscribed, setDispatchSubscribed] = useState(false);
@@ -24,10 +28,7 @@ export const Footer: React.FC<FooterProps> = ({
   };
 
   const scrollTo = (id: string) => {
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
+    onNavigateHome(id);
   };
 
   return (
@@ -91,10 +92,18 @@ export const Footer: React.FC<FooterProps> = ({
             <ul className="space-y-2 text-xs text-[#D1C6B4]">
               <li>
                 <button
-                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                  onClick={() => onNavigateHome()}
                   className="hover:text-[#FAF7F2] transition-colors cursor-pointer"
                 >
                   Home Sanctuary
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={onNavigateProducts}
+                  className="hover:text-[#D4AF37] text-[#FAF7F2] font-semibold transition-colors cursor-pointer"
+                >
+                  Sacred Store &amp; Products
                 </button>
               </li>
               <li>
@@ -150,8 +159,15 @@ export const Footer: React.FC<FooterProps> = ({
               <li>Ancestral Heritage Consultations</li>
               <li>Traditional Dream Interpretation</li>
               <li>Herbal Heritage Education</li>
-              <li>Cultural Rituals & Cleansing</li>
-              <li>Mindful Meditation & Breathwork</li>
+              <li>
+                <button
+                  onClick={onNavigateProducts}
+                  className="hover:text-[#D4AF37] transition-colors cursor-pointer text-left"
+                >
+                  Sacred Resins, Plants &amp; Crafts
+                </button>
+              </li>
+              <li>Mindful Meditation &amp; Breathwork</li>
             </ul>
           </div>
 
