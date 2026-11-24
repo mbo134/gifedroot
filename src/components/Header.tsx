@@ -191,11 +191,11 @@ export const Header: React.FC<HeaderProps> = ({
                 <span>Chat via WhatsApp</span>
               </button>
               <a
-                href="mailto:healer@giftedrootsspiritualhealer.org"
+                href="mailto:giftedroot6@gmail.com"
                 className="w-full py-2.5 flex items-center justify-center gap-2 text-xs font-semibold text-[#55473C] border border-[#D4AF37]/30 rounded-xl hover:bg-[#EAE2D3] transition-colors"
               >
                 <Mail className="w-3.5 h-3.5 text-[#D4AF37]" />
-                <span>healer@giftedrootsspiritualhealer.org</span>
+                <span>giftedroot6@gmail.com</span>
               </a>
             </div>
           </div>

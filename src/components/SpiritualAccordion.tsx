@@ -265,7 +265,7 @@ export const SpiritualAccordion: React.FC<SpiritualAccordionProps> = ({ onReques
       <div className="p-4 bg-[#142B1A]/80 rounded-xl border border-[#D4AF37]/25 flex flex-col sm:flex-row items-center justify-between text-xs text-[#C5B8A5] gap-3">
         <div className="flex items-center gap-2">
           <ShieldCheck className="w-4 h-4 text-[#D4AF37] shrink-0" />
-          <span>Have an unlisted question? Email <a href="mailto:healer@giftedrootsspiritualhealer.org" className="text-[#D4AF37] underline font-medium">healer@giftedrootsspiritualhealer.org</a> or schedule a time.</span>
+          <span>Have an unlisted question? Email <a href="mailto:giftedroot6@gmail.com" className="text-[#D4AF37] underline font-medium">giftedroot6@gmail.com</a> or schedule a time.</span>
         </div>
         <button
           onClick={() => onRequestBooking?.('ancestral-consultation')}

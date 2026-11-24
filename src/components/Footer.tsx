@@ -75,11 +75,11 @@ export const Footer: React.FC<FooterProps> = ({
               </button>
 
               <a
-                href="mailto:healer@giftedrootsspiritualhealer.org"
+                href="mailto:giftedroot6@gmail.com"
                 className="inline-flex items-center gap-2 px-3.5 py-2 bg-[#1B3824] hover:bg-[#274F33] text-[#FAF7F2] border border-[#D4AF37]/30 text-xs font-medium rounded-xl transition-all"
               >
                 <Mail className="w-3.5 h-3.5 text-[#D4AF37]" />
-                <span className="truncate">healer@giftedrootsspiritualhealer.org</span>
+                <span className="truncate">giftedroot6@gmail.com</span>
               </a>
             </div>
           </div>

@@ -121,7 +121,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
       .map((i) => `- ${i.quantity}x ${i.name} (${i.variantLabel}): $${(i.price * i.quantity).toFixed(2)}`)
       .join('\n');
     const body = `Order Reference: ${order.id}\nCustomer: ${order.fullName}\nEmail: ${order.email}\nWhatsApp: ${order.whatsappNumber}\nDelivery: ${order.deliveryMethod === 'courier' ? `${order.shippingAddress}, ${order.postalCode}` : 'Sanctuary Pickup'}\n\nItems:\n${lines}\n\nTotal: $${order.total.toFixed(2)}`;
-    return `mailto:healer@giftedrootsspiritualhealer.org?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    return `mailto:giftedroot6@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   };
 
   return (

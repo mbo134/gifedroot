@@ -219,11 +219,11 @@ END:VCALENDAR`;
               <div className="pt-3 border-t border-[#EAE2D3] flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-xs text-[#55473C]">
                 <span>Official Sanctuary Desk:</span>
                 <a
-                  href="mailto:healer@giftedrootsspiritualhealer.org"
+                  href="mailto:giftedroot6@gmail.com"
                   className="font-semibold text-[#142B1A] hover:text-[#7A4628] flex items-center gap-1.5 transition-colors"
                 >
                   <Mail className="w-3.5 h-3.5 text-[#D4AF37]" />
-                  <span>healer@giftedrootsspiritualhealer.org</span>
+                  <span>giftedroot6@gmail.com</span>
                 </a>
               </div>
             </div>
@@ -530,10 +530,10 @@ END:VCALENDAR`;
                 <Mail className="w-3.5 h-3.5 text-[#D4AF37]" />
                 <span>Prefer direct email? Reach the healer directly at{' '}
                   <a
-                    href="mailto:healer@giftedrootsspiritualhealer.org"
+                    href="mailto:giftedroot6@gmail.com"
                     className="font-semibold text-[#142B1A] hover:underline"
                   >
-                    healer@giftedrootsspiritualhealer.org
+                    giftedroot6@gmail.com
                   </a>
                 </span>
               </div>

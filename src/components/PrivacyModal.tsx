@@ -67,7 +67,7 @@ export const PrivacyModal: React.FC<PrivacyModalProps> = ({ isOpen, onClose }) =
                 <span>3. Privacy-Conscious Data Retention</span>
               </div>
               <p className="text-xs text-[#55473C]">
-                Your booking requests are retained solely to coordinate your appointment. You hold the unconditional right to request the immediate erasure of your contact details and notes from our correspondence logs by writing to <a href="mailto:healer@giftedrootsspiritualhealer.org" className="text-[#142B1A] font-semibold underline">healer@giftedrootsspiritualhealer.org</a> at any time.
+                Your booking requests are retained solely to coordinate your appointment. You hold the unconditional right to request the immediate erasure of your contact details and notes from our correspondence logs by writing to <a href="mailto:giftedroot6@gmail.com" className="text-[#142B1A] font-semibold underline">giftedroot6@gmail.com</a> at any time.
               </p>
             </div>
 
