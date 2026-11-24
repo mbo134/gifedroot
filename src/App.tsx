@@ -21,14 +21,35 @@ import { Footer } from './components/Footer';
 import { ProductsPage } from './components/ProductsPage';
 import { ProductDetailModal } from './components/ProductDetailModal';
 import { CartDrawer } from './components/CartDrawer';
+import { SubpageLayout } from './components/SubpageLayout';
 import { PRODUCTS } from './data/productsData';
-import { CartItem, ProductItem, ProductVariant, ServiceItem } from './types';
+import { CartItem, PageRoute, ProductItem, ProductVariant, ServiceItem } from './types';
 
 const CART_STORAGE_KEY = 'gifted_roots_cart';
 
+const VALID_PAGES: PageRoute[] = [
+  'home',
+  'about',
+  'services',
+  'products',
+  'botanicals',
+  'philosophy',
+  'testimonials',
+  'consultation',
+];
+
+const parseHashToPage = (hash: string): PageRoute => {
+  const clean = hash.replace(/^#/, '').toLowerCase();
+  if (clean === 'booking-section') return 'consultation';
+  if (VALID_PAGES.includes(clean as PageRoute)) {
+    return clean as PageRoute;
+  }
+  return 'home';
+};
+
 export default function App() {
-  const [activePage, setActivePage] = useState<'home' | 'products'>(() =>
-    typeof window !== 'undefined' && window.location.hash === '#products' ? 'products' : 'home'
+  const [activePage, setActivePage] = useState<PageRoute>(() =>
+    typeof window !== 'undefined' ? parseHashToPage(window.location.hash) : 'home'
   );
   const [selectedServiceForModal, setSelectedServiceForModal] = useState<ServiceItem | null>(null);
   const [selectedServiceIdForBooking, setSelectedServiceIdForBooking] =
@@ -57,55 +78,28 @@ export default function App() {
 
   useEffect(() => {
     const handleHashChange = () => {
-      if (window.location.hash === '#products') {
-        setActivePage('products');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
+      const nextPage = parseHashToPage(window.location.hash);
+      setActivePage(nextPage);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     };
     window.addEventListener('hashchange', handleHashChange);
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
-  const navigateToProducts = () => {
-    setActivePage('products');
-    if (window.location.hash !== '#products') {
-      window.history.replaceState(null, '', '#products');
+  const navigateToPage = (page: PageRoute) => {
+    setActivePage(page);
+    const nextHash = page === 'home' ? '#' : `#${page}`;
+    if (window.location.hash !== nextHash) {
+      window.history.replaceState(null, '', nextHash);
     }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const navigateToHome = (sectionId?: string) => {
-    const switchingFromProducts = activePage !== 'home';
-    setActivePage('home');
-    if (window.location.hash === '#products') {
-      window.history.replaceState(null, '', sectionId ? `#${sectionId}` : '#');
-    }
-
-    if (!sectionId) {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      return;
-    }
-
-    setTimeout(
-      () => {
-        const el = document.getElementById(sectionId);
-        if (el) {
-          el.scrollIntoView({ behavior: 'smooth' });
-        }
-      },
-      switchingFromProducts ? 60 : 0
-    );
-  };
-
-  const scrollToBooking = (serviceId?: string) => {
+  const openConsultationPage = (serviceId?: string) => {
     if (serviceId) {
       setSelectedServiceIdForBooking(serviceId);
     }
-    navigateToHome('booking-section');
-  };
-
-  const scrollToServices = () => {
-    navigateToHome('services');
+    navigateToPage('consultation');
   };
 
   const handleAddToCart = (
@@ -172,38 +166,112 @@ export default function App() {
 
   const totalCartItems = cart.reduce((sum, item) => sum + item.quantity, 0);
 
-  return (
-    <div className="min-h-screen bg-[#FAF7F2] text-[#2C241E] flex flex-col font-sans selection:bg-[#D4AF37]/30 selection:text-[#142B1A]">
-      {/* Top Ethical Notice Banner */}
-      <MedicalDisclaimer variant="banner" />
-
-      {/* Main Navigation (Complies with Top Bar Contract) */}
-      <Header
-        activePage={activePage}
-        cartItemCount={totalCartItems}
-        onNavigateHome={navigateToHome}
-        onNavigateProducts={navigateToProducts}
-        onOpenCart={() => setIsCartOpen(true)}
-        onOpenBooking={() => scrollToBooking()}
-        onOpenWhatsApp={() => setIsWhatsAppOpen(true)}
-      />
-
-      <main className="flex-1">
-        {activePage === 'products' ? (
+  const renderMainContent = () => {
+    switch (activePage) {
+      case 'products':
+        return (
           <ProductsPage
-            onBackHome={() => navigateToHome()}
+            onBackHome={() => navigateToPage('home')}
             onAddToCart={handleAddToCart}
             onOpenCart={() => setIsCartOpen(true)}
-            onOpenBooking={() => scrollToBooking()}
+            onOpenBooking={() => openConsultationPage()}
             cartItemCount={totalCartItems}
             onSelectProduct={(product) => setSelectedProductForModal(product)}
           />
-        ) : (
+        );
+
+      case 'about':
+        return (
+          <SubpageLayout
+            kicker="Our Living Lineage"
+            title="Rooted in Tradition & Ancestral Custodianship"
+            subtitle="Discover the elder lineage, ethical commitment, and tranquil sanctuary principles guiding Gifted Roots."
+            activePage={activePage}
+            onNavigate={navigateToPage}
+          >
+            <AboutUs />
+          </SubpageLayout>
+        );
+
+      case 'services':
+        return (
+          <SubpageLayout
+            kicker="Traditional Healing & Spiritual Services"
+            title="Sacred Consultations, Love Protection & Ritual Guidance"
+            subtitle="Explore confidential one-on-one sessions covering traditional healing, ancestral lineage, dream interpretation, and love protection."
+            activePage={activePage}
+            onNavigate={navigateToPage}
+          >
+            <ServicesSection
+              onSelectServiceForModal={(service) => setSelectedServiceForModal(service)}
+              onRequestBooking={(serviceId) => openConsultationPage(serviceId)}
+            />
+          </SubpageLayout>
+        );
+
+      case 'botanicals':
+        return (
+          <SubpageLayout
+            kicker="Sacred African Flora & Prosperity Plants"
+            title="Botanical Lore & Living Home Harmony"
+            subtitle="Learn the cultural significance of ceremonial herbs and thriving indoor money plants honored across our sanctuary."
+            activePage={activePage}
+            onNavigate={navigateToPage}
+          >
+            <BotanicalHeritage />
+          </SubpageLayout>
+        );
+
+      case 'philosophy':
+        return (
+          <SubpageLayout
+            kicker="Ancestral Ethics & Care Policy"
+            title="Our Philosophy, Sacred Boundaries & Questions"
+            subtitle="Understand the pillars of Sankofa, earth stewardship, seeker agency, and frequently asked consultation questions."
+            activePage={activePage}
+            onNavigate={navigateToPage}
+          >
+            <Philosophy onRequestBooking={(serviceId) => openConsultationPage(serviceId)} />
+          </SubpageLayout>
+        );
+
+      case 'testimonials':
+        return (
+          <SubpageLayout
+            kicker="Worldwide Sanctuary Reach"
+            title="Global Clients & Seeker Testimonials"
+            subtitle="Reflections from clients we serve across Africa, the Arabian Peninsula, Europe, and Eurasia."
+            activePage={activePage}
+            onNavigate={navigateToPage}
+          >
+            <Testimonials />
+          </SubpageLayout>
+        );
+
+      case 'consultation':
+        return (
+          <SubpageLayout
+            kicker="Confidential Scheduling Portal"
+            title="Request a Traditional Healing or Spiritual Consultation"
+            subtitle="Book a private video, audio, or sanctuary session tailored to your intentions and time zone."
+            activePage={activePage}
+            onNavigate={navigateToPage}
+          >
+            <BookingForm
+              initialServiceId={selectedServiceIdForBooking}
+              onOpenPrivacyPolicy={() => setIsPrivacyModalOpen(true)}
+            />
+          </SubpageLayout>
+        );
+
+      case 'home':
+      default:
+        return (
           <>
             {/* Hero Section */}
             <Hero
-              onOpenBooking={() => scrollToBooking()}
-              onExploreServices={scrollToServices}
+              onOpenBooking={() => openConsultationPage()}
+              onExploreServices={() => navigateToPage('services')}
             />
 
             {/* Prominent Ethical Care & Medical Boundary Statement */}
@@ -217,7 +285,7 @@ export default function App() {
             {/* Sacred Traditional Offerings & Services */}
             <ServicesSection
               onSelectServiceForModal={(service) => setSelectedServiceForModal(service)}
-              onRequestBooking={(serviceId) => scrollToBooking(serviceId)}
+              onRequestBooking={(serviceId) => openConsultationPage(serviceId)}
             />
 
             {/* Botanical Heritage & Sacred African Flora (Educational) */}
@@ -236,12 +304,12 @@ export default function App() {
                       Bring Sacred Resins, Living Plants &amp; Vessels Home
                     </h2>
                     <p className="text-sm text-[#D1C6B4]">
-                      Explore sun-cured Imphepho bundles, Pilea money plants, African Luban frankincense, and artisan terracotta vessels.
+                      Explore sun-cured Imphepho bundles, Pilea money plants, Man Power Tea Herbal, home protection blends, and artisan terracotta vessels.
                     </p>
                   </div>
                   <button
                     type="button"
-                    onClick={navigateToProducts}
+                    onClick={() => navigateToPage('products')}
                     className="inline-flex items-center gap-2 px-5 py-3 bg-[#D4AF37] hover:bg-[#E5C358] text-[#142B1A] text-sm font-bold rounded-xl shadow-sm transition-colors whitespace-nowrap self-start lg:self-auto cursor-pointer"
                   >
                     <ShoppingBag className="w-4 h-4" />
@@ -286,7 +354,7 @@ export default function App() {
             </section>
 
             {/* Philosophy, Pillars & Interactive Accordion */}
-            <Philosophy onRequestBooking={(serviceId) => scrollToBooking(serviceId)} />
+            <Philosophy onRequestBooking={(serviceId) => openConsultationPage(serviceId)} />
 
             {/* Genuine Testimonials & Reflections */}
             <Testimonials />
@@ -297,16 +365,33 @@ export default function App() {
               onOpenPrivacyPolicy={() => setIsPrivacyModalOpen(true)}
             />
           </>
-        )}
-      </main>
+        );
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-[#FAF7F2] text-[#2C241E] flex flex-col font-sans selection:bg-[#D4AF37]/30 selection:text-[#142B1A]">
+      {/* Top Ethical Notice Banner */}
+      <MedicalDisclaimer variant="banner" />
+
+      {/* Main Navigation (Complies with Top Bar Contract) */}
+      <Header
+        activePage={activePage}
+        cartItemCount={totalCartItems}
+        onNavigatePage={navigateToPage}
+        onOpenCart={() => setIsCartOpen(true)}
+        onOpenBooking={() => openConsultationPage()}
+        onOpenWhatsApp={() => setIsWhatsAppOpen(true)}
+      />
+
+      <main className="flex-1">{renderMainContent()}</main>
 
       {/* Responsive Footer */}
       <Footer
         onOpenPrivacyPolicy={() => setIsPrivacyModalOpen(true)}
-        onOpenBooking={() => scrollToBooking()}
+        onOpenBooking={() => openConsultationPage()}
         onOpenWhatsApp={() => setIsWhatsAppOpen(true)}
-        onNavigateHome={navigateToHome}
-        onNavigateProducts={navigateToProducts}
+        onNavigatePage={navigateToPage}
       />
 
       {/* Service Detail & Protocol Modal */}
@@ -315,7 +400,7 @@ export default function App() {
         onClose={() => setSelectedServiceForModal(null)}
         onBookNow={(serviceId) => {
           setSelectedServiceForModal(null);
-          scrollToBooking(serviceId);
+          openConsultationPage(serviceId);
         }}
       />
 
@@ -327,7 +412,7 @@ export default function App() {
         onOpenCart={() => setIsCartOpen(true)}
       />
 
-      {/* Slide-Over Shopping Bag & Order Reservation Drawer */}
+      {/* Slide-Over Shopping Bag & Offering Reservation Drawer */}
       <CartDrawer
         isOpen={isCartOpen}
         onClose={() => setIsCartOpen(false)}
@@ -335,7 +420,7 @@ export default function App() {
         onUpdateQuantity={handleUpdateQuantity}
         onRemoveItem={handleRemoveItem}
         onClearCart={handleClearCart}
-        onBrowseProducts={navigateToProducts}
+        onBrowseProducts={() => navigateToPage('products')}
       />
 
       {/* Privacy Pledge Modal */}

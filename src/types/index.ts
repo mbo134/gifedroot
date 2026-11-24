@@ -117,3 +117,14 @@ export interface OrderRequest {
   status: 'Pending Sanctuary Confirmation';
 }
 
+export type PageRoute =
+  | 'home'
+  | 'about'
+  | 'services'
+  | 'products'
+  | 'botanicals'
+  | 'philosophy'
+  | 'testimonials'
+  | 'consultation';
+
+

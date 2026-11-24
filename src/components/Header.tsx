@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Menu, X, MessageCircle, Mail, ShoppingBag } from 'lucide-react';
+import { PageRoute } from '../types';
 
 interface HeaderProps {
-  activePage: 'home' | 'products';
+  activePage: PageRoute;
   cartItemCount: number;
-  onNavigateHome: (sectionId?: string) => void;
-  onNavigateProducts: () => void;
+  onNavigatePage: (page: PageRoute) => void;
   onOpenCart: () => void;
   onOpenBooking: () => void;
   onOpenWhatsApp: () => void;
@@ -14,29 +14,24 @@ interface HeaderProps {
 export const Header: React.FC<HeaderProps> = ({
   activePage,
   cartItemCount,
-  onNavigateHome,
-  onNavigateProducts,
+  onNavigatePage,
   onOpenCart,
   onOpenBooking,
   onOpenWhatsApp,
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const navLinks: { label: string; type: 'section' | 'products'; target: string }[] = [
-    { label: 'About Lineage', type: 'section', target: 'about' },
-    { label: 'Services', type: 'section', target: 'services' },
-    { label: 'Products', type: 'products', target: 'products' },
-    { label: 'Botanical Lore', type: 'section', target: 'botanicals' },
-    { label: 'Our Philosophy', type: 'section', target: 'philosophy' },
+  const navLinks: { label: string; page: PageRoute }[] = [
+    { label: 'About Lineage', page: 'about' },
+    { label: 'Services', page: 'services' },
+    { label: 'Products', page: 'products' },
+    { label: 'Botanical Lore', page: 'botanicals' },
+    { label: 'Our Philosophy', page: 'philosophy' },
   ];
 
-  const handleNavClick = (link: { type: 'section' | 'products'; target: string }) => {
+  const handleNavClick = (page: PageRoute) => {
     setMobileMenuOpen(false);
-    if (link.type === 'products') {
-      onNavigateProducts();
-    } else {
-      onNavigateHome(link.target);
-    }
+    onNavigatePage(page);
   };
 
   return (
@@ -45,7 +40,7 @@ export const Header: React.FC<HeaderProps> = ({
         {/* Zone 1: Brand Wordmark */}
         <button
           type="button"
-          onClick={() => onNavigateHome()}
+          onClick={() => handleNavClick('home')}
           className="flex items-center gap-2.5 text-[#142B1A] group whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-[#D4AF37] cursor-pointer text-left"
         >
           <div className="w-10 h-10 rounded-xl bg-[#142B1A] text-[#D4AF37] flex items-center justify-center shadow-sm group-hover:bg-[#1B3824] transition-colors">
@@ -67,12 +62,12 @@ export const Header: React.FC<HeaderProps> = ({
         {/* Zone 2: Navigation Links (5 crisp single-line links) */}
         <nav className="hidden lg:flex items-center gap-6 text-sm font-medium text-[#4A3D33]">
           {navLinks.map((link) => {
-            const isActive = link.type === 'products' && activePage === 'products';
+            const isActive = activePage === link.page;
             return (
               <button
-                key={link.label}
+                key={link.page}
                 type="button"
-                onClick={() => handleNavClick(link)}
+                onClick={() => handleNavClick(link.page)}
                 className={`relative py-1 transition-colors whitespace-nowrap shrink-0 group focus-visible:outline-none cursor-pointer ${
                   isActive ? 'text-[#142B1A] font-semibold' : 'hover:text-[#142B1A]'
                 }`}
@@ -151,13 +146,24 @@ export const Header: React.FC<HeaderProps> = ({
             <p className="text-xs uppercase tracking-wider text-[#7A4628] font-semibold">
               Rooted in Tradition. Guided by Wisdom.
             </p>
+            <button
+              type="button"
+              onClick={() => handleNavClick('home')}
+              className={`text-left text-base font-medium py-2 border-b border-[#EAE2D3]/60 transition-colors cursor-pointer ${
+                activePage === 'home'
+                  ? 'text-[#142B1A] font-bold'
+                  : 'text-[#2C241E] hover:text-[#142B1A]'
+              }`}
+            >
+              Home Sanctuary
+            </button>
             {navLinks.map((link) => {
-              const isActive = link.type === 'products' && activePage === 'products';
+              const isActive = activePage === link.page;
               return (
                 <button
-                  key={link.label}
+                  key={link.page}
                   type="button"
-                  onClick={() => handleNavClick(link)}
+                  onClick={() => handleNavClick(link.page)}
                   className={`text-left text-base font-medium py-2 border-b border-[#EAE2D3]/60 transition-colors cursor-pointer ${
                     isActive
                       ? 'text-[#142B1A] font-bold'
@@ -168,6 +174,17 @@ export const Header: React.FC<HeaderProps> = ({
                 </button>
               );
             })}
+            <button
+              type="button"
+              onClick={() => handleNavClick('testimonials')}
+              className={`text-left text-base font-medium py-2 border-b border-[#EAE2D3]/60 transition-colors cursor-pointer ${
+                activePage === 'testimonials'
+                  ? 'text-[#142B1A] font-bold'
+                  : 'text-[#2C241E] hover:text-[#142B1A]'
+              }`}
+            >
+              Global Clients &amp; Testimonials
+            </button>
             <div className="pt-4 flex flex-col gap-3">
               <button
                 type="button"

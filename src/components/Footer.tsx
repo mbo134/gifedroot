@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
 import { MessageCircle, ShieldCheck, Heart, Send, CheckCircle2, Mail } from 'lucide-react';
 
+import { PageRoute } from '../types';
+
 interface FooterProps {
   onOpenPrivacyPolicy: () => void;
   onOpenBooking: () => void;
   onOpenWhatsApp: () => void;
-  onNavigateHome: (sectionId?: string) => void;
-  onNavigateProducts: () => void;
+  onNavigatePage: (page: PageRoute) => void;
 }
 
 export const Footer: React.FC<FooterProps> = ({
   onOpenPrivacyPolicy,
   onOpenBooking,
   onOpenWhatsApp,
-  onNavigateHome,
-  onNavigateProducts,
+  onNavigatePage,
 }) => {
   const [dispatchEmail, setDispatchEmail] = useState('');
   const [dispatchSubscribed, setDispatchSubscribed] = useState(false);
@@ -27,8 +27,8 @@ export const Footer: React.FC<FooterProps> = ({
     setTimeout(() => setDispatchSubscribed(false), 5000);
   };
 
-  const scrollTo = (id: string) => {
-    onNavigateHome(id);
+  const scrollTo = (page: PageRoute) => {
+    onNavigatePage(page);
   };
 
   return (
@@ -92,7 +92,7 @@ export const Footer: React.FC<FooterProps> = ({
             <ul className="space-y-2 text-xs text-[#D1C6B4]">
               <li>
                 <button
-                  onClick={() => onNavigateHome()}
+                  onClick={() => onNavigatePage('home')}
                   className="hover:text-[#FAF7F2] transition-colors cursor-pointer"
                 >
                   Home Sanctuary
@@ -100,7 +100,7 @@ export const Footer: React.FC<FooterProps> = ({
               </li>
               <li>
                 <button
-                  onClick={onNavigateProducts}
+                  onClick={() => onNavigatePage('products')}
                   className="hover:text-[#D4AF37] text-[#FAF7F2] font-semibold transition-colors cursor-pointer"
                 >
                   Sacred Store &amp; Products
@@ -143,7 +143,7 @@ export const Footer: React.FC<FooterProps> = ({
                   onClick={() => scrollTo('testimonials')}
                   className="hover:text-[#FAF7F2] transition-colors cursor-pointer"
                 >
-                  Seeker Reflections
+                  Global Clients &amp; Testimonials
                 </button>
               </li>
             </ul>
@@ -155,19 +155,54 @@ export const Footer: React.FC<FooterProps> = ({
               Offerings
             </h4>
             <ul className="space-y-2 text-xs text-[#D1C6B4]">
-              <li>Traditional Spiritual Guidance</li>
-              <li>Ancestral Heritage Consultations</li>
-              <li>Traditional Dream Interpretation</li>
-              <li>Herbal Heritage Education</li>
               <li>
                 <button
-                  onClick={onNavigateProducts}
+                  onClick={() => onNavigatePage('services')}
+                  className="hover:text-[#D4AF37] transition-colors cursor-pointer text-left"
+                >
+                  Traditional Spiritual Guidance
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => onNavigatePage('services')}
+                  className="hover:text-[#D4AF37] transition-colors cursor-pointer text-left"
+                >
+                  Love Protection &amp; Reconciliation
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => onNavigatePage('services')}
+                  className="hover:text-[#D4AF37] transition-colors cursor-pointer text-left"
+                >
+                  Ancestral Heritage Consultations
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => onNavigatePage('botanicals')}
+                  className="hover:text-[#D4AF37] transition-colors cursor-pointer text-left"
+                >
+                  Herbal Heritage Education
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => onNavigatePage('products')}
                   className="hover:text-[#D4AF37] transition-colors cursor-pointer text-left"
                 >
                   Sacred Resins, Plants &amp; Crafts
                 </button>
               </li>
-              <li>Mindful Meditation &amp; Breathwork</li>
+              <li>
+                <button
+                  onClick={() => onNavigatePage('consultation')}
+                  className="hover:text-[#D4AF37] transition-colors cursor-pointer text-left"
+                >
+                  Confidential Consultation Portal
+                </button>
+              </li>
             </ul>
           </div>
 
@@ -255,7 +290,7 @@ export const Footer: React.FC<FooterProps> = ({
               Ethical Code of Conduct
             </button>
             <button
-              onClick={() => scrollTo('booking-section')}
+              onClick={() => onNavigatePage('consultation')}
               className="hover:text-[#D4AF37] transition-colors cursor-pointer"
             >
               Booking Portal
