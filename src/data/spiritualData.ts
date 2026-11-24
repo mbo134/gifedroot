@@ -275,39 +275,171 @@ export const BOTANICALS: BotanicalItem[] = [
   }
 ];
 
+export interface GlobalRegion {
+  id: string;
+  regionName: string;
+  countries: string[];
+}
+
+export const GLOBAL_CLIENT_REGIONS: GlobalRegion[] = [
+  {
+    id: 'africa-indian-ocean',
+    regionName: 'Africa & Indian Ocean',
+    countries: ['Morocco', 'Tunisia', 'Mauritania', 'Seychelles', 'Namibia'],
+  },
+  {
+    id: 'arabian-peninsula',
+    regionName: 'Arabian Peninsula',
+    countries: [
+      'Bahrain',
+      'Kuwait',
+      'Oman',
+      'Qatar',
+      'Saudi Arabia',
+      'United Arab Emirates',
+      'Yemen',
+    ],
+  },
+  {
+    id: 'western-central-europe',
+    regionName: 'Western & Central Europe',
+    countries: [
+      'Austria',
+      'Belgium',
+      'Czechia',
+      'France',
+      'Germany',
+      'Ireland',
+      'Liechtenstein',
+      'Luxembourg',
+      'Monaco',
+      'Netherlands',
+      'Poland',
+      'Slovakia',
+      'Switzerland',
+      'United Kingdom',
+    ],
+  },
+  {
+    id: 'northern-europe',
+    regionName: 'Northern Europe',
+    countries: [
+      'Denmark',
+      'Estonia',
+      'Finland',
+      'Iceland',
+      'Latvia',
+      'Lithuania',
+      'Norway',
+      'Sweden',
+    ],
+  },
+  {
+    id: 'southern-europe-balkans',
+    regionName: 'Southern Europe & the Balkans',
+    countries: [
+      'Albania',
+      'Andorra',
+      'Bosnia and Herzegovina',
+      'Croatia',
+      'Greece',
+      'Italy',
+      'Malta',
+      'Montenegro',
+      'North Macedonia',
+      'Portugal',
+      'San Marino',
+      'Serbia',
+      'Slovenia',
+      'Spain',
+      'Vatican City',
+    ],
+  },
+  {
+    id: 'eastern-europe',
+    regionName: 'Eastern Europe',
+    countries: ['Belarus', 'Bulgaria', 'Hungary', 'Moldova', 'Romania', 'Russia', 'Ukraine'],
+  },
+  {
+    id: 'transcontinental',
+    regionName: 'Transcontinental (Europe & Asia)',
+    countries: ['Azerbaijan', 'Georgia', 'Kazakhstan', 'Russia', 'Türkiye'],
+  },
+];
+
 export const TESTIMONIALS: TestimonialItem[] = [
   {
     id: 't1',
     author: 'Amara K.',
-    location: 'Nairobi / London',
+    location: 'London, United Kingdom',
     serviceTaken: 'Ancestral Heritage Consultation',
     period: 'Consulted in 2026',
-    quote: 'During a deeply confusing period of career burnout and relocation, Gifted Roots offered a space of profound dignity. There was zero judgment, no superstitious fear-mongering—just honest ancestral grounding that helped me reconnect with where I come from. I left with calm and clarity.'
+    quote:
+      'During a deeply confusing period of career burnout and relocation, Gifted Roots offered a space of profound dignity. There was zero judgment—just honest ancestral grounding that helped me reconnect with where I come from and regain peace at work.',
   },
   {
     id: 't2',
-    author: 'Kwame O.',
-    location: 'Accra / Atlanta',
-    serviceTaken: 'Traditional Dream Interpretation',
+    author: 'Youssef B.',
+    location: 'Casablanca, Morocco',
+    serviceTaken: 'Threshold Shield & Home Protection',
     period: 'Consulted in 2026',
-    quote: 'I had been waking up distressed for weeks by recurring dreams of water and elders. The session systematically decoded the symbols through our cultural cosmology. It felt thoughtful, measured, and completely demystified. It gave me the emotional insight I needed to make peace with my father.'
+    quote:
+      'After moving into a new family residence, our household felt restless and unsettled. Following our confidential session and setting up the Threshold Shield botanical blend at our doorway, a deep quiet returned to our home and sleep.',
   },
   {
     id: 't3',
-    author: 'Thandiwe M.',
-    location: 'Johannesburg',
-    serviceTaken: 'Herbal Heritage & Mindful Breathwork',
-    period: 'Consulted in 2025',
-    quote: 'What struck me most was the rigorous ethics and respect for modern medical boundaries. The healer explained traditional plant lore and breath rhythm with such reverence. The morning practices I learned continue to keep me calm and centered through corporate stress.'
+    author: 'Fatima A.',
+    location: 'Dubai, United Arab Emirates',
+    serviceTaken: 'Love Protection & Reconciliation Guidance',
+    period: 'Consulted in 2026',
+    quote:
+      'Months of misunderstanding and outside interference had pushed my husband and me far apart. Gifted Roots listened with patience and guided us through prayerful alignment and love protection rites. Within weeks we were speaking calmly again and rebuilding our home together.',
   },
   {
     id: 't4',
-    author: 'Malick S.',
-    location: 'Dakar / Paris',
-    serviceTaken: 'Traditional Spiritual Guidance',
+    author: 'Helena N.',
+    location: 'Windhoek, Namibia',
+    serviceTaken: 'Traditional Healing & Spiritual Guidance',
     period: 'Consulted in 2026',
-    quote: 'In a world full of hollow online spiritual trends, Gifted Roots is genuine. You can feel the weight of genuine elder wisdom and quiet integrity. They remind you that your choices belong to you, but the ancestors walk behind you. Invaluable guidance.'
-  }
+    quote:
+      'What stood out most was the elder humility and calm clarity. The traditional healing session lifted a heavy emotional burden I had carried since losing my promotion, helping me step forward with confidence into a stronger business chapter.',
+  },
+  {
+    id: 't5',
+    author: 'Lukas V.',
+    location: 'Zurich, Switzerland & Vienna, Austria',
+    serviceTaken: 'Traditional Dream Interpretation',
+    period: 'Consulted in 2025',
+    quote:
+      'Recurring dreams had left me anxious for months. The healer unpacked every symbol patiently with real ancestral insight rather than fear. I left the call feeling grounded, clear-headed, and grateful for the wisdom shared.',
+  },
+  {
+    id: 't6',
+    author: 'Freja L.',
+    location: 'Stockholm, Sweden',
+    serviceTaken: 'Cultural Rituals & Sacred Imphepho',
+    period: 'Consulted in 2026',
+    quote:
+      'Connecting from Northern Europe was seamless. Preparing the Imphepho bundle with the spoken blessing guidance transformed my studio atmosphere during winter and brought steady calm to my creative work.',
+  },
+  {
+    id: 't7',
+    author: 'Matteo R.',
+    location: 'Milan, Italy & Athens, Greece',
+    serviceTaken: 'Love Protection & Bring Back Lover Guidance',
+    period: 'Consulted in 2026',
+    quote:
+      'When my partner and I separated after painful miscommunication, I wanted genuine spiritual counsel without empty theatrics. Gifted Roots treated our bond with dignity and guided the reconciliation steps that brought us back into harmony.',
+  },
+  {
+    id: 't8',
+    author: 'Elif D.',
+    location: 'Istanbul, Türkiye',
+    serviceTaken: 'Mindful Meditation & Ancestral Balance',
+    period: 'Consulted in 2026',
+    quote:
+      'Working across Europe and Asia kept my mind constantly scattered. The breathwork, Luban frankincense ritual, and spiritual discernment sessions restored a sense of protection, focus, and gratitude in my daily life.',
+  },
 ];
 
 export const PHILOSOPHY_PILLARS = [

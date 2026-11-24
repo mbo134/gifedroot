@@ -1,5 +1,4 @@
 import imphephoBundleImg from '../assets/images/product_imphepho_bundle_1795441212002.jpg';
-import lubanResinImg from '../assets/images/product_luban_resin_1795441212499.jpg';
 import sankofaBeadsImg from '../assets/images/product_sankofa_beads_1795441214085.jpg';
 import clayLibationImg from '../assets/images/product_clay_libation_vessel_1795441214305.jpg';
 import pileaPlantImg from '../assets/images/product_pilea_money_plant_1795441214418.jpg';
@@ -40,27 +39,29 @@ export const PRODUCTS: ProductItem[] = [
     ],
   },
   {
-    id: 'african-luban-frankincense',
-    name: 'African Luban Frankincense Resin',
-    subtitle: 'Boswellia sacra · Golden Tears & Terracotta Burner',
-    category: 'incense-resins',
-    categoryLabel: 'Incense & Resins',
-    origin: 'Horn of Africa',
-    botanicalOrMaterial: 'Hand-sorted golden frankincense resin tears',
+    id: 'man-power-tea-herbal',
+    name: 'Man Power Tea Herbal',
+    subtitle: 'Traditional Roots & Botanicals · Energy & Stamina Infusion',
+    category: 'botanical-blends',
+    categoryLabel: 'Botanical Blends',
+    origin: 'Sanctuary Herbal Guild',
+    botanicalOrMaterial:
+      'Manpower root, cinnamon cassia, ginseng, cistanche, moringa leaf, cloves, astragalus, and peppermint',
     availability: 'In Stock',
-    image: lubanResinImg,
-    imageAlt: 'Golden translucent African Luban frankincense resin tears in small terracotta dish',
+    image: '/assets/aistudio/image_17ddc92f_4409439f.jpg',
+    imageAlt:
+      'Man Power Tea Herbal pouch beside a steaming black ceramic cup of amber herbal infusion and wooden spoon of dried roots and leaves',
     shortDesc:
-      'Aromatic golden tree resin revered for centuries along East African sanctuary routes to elevate breathwork, focus, and peaceful contemplation.',
+      'A rich traditional herbal tea infusion crafted with invigorating roots, warming spices, and moringa leaf to support daily energy, vitality, and stamina.',
     culturalStory:
-      'Collected in seasonal harvests from sun-warmed Boswellia bark, Luban carries bright citrus and warm woody top notes that traditionally mark moments of threshold, gratitude, and sacred study.',
+      'Drawing from time-honored herbal rootcraft, this robust botanical blend combines earthy roots, aromatic cloves, cinnamon bark, and green moringa for grounded strength and steady daily vigor.',
     ritualUse:
-      'Place two or three small tears atop glowing charcoal or a gentle brass resin warmer. Allow the crisp balsamic veil to scent your workspace or reflection altar for 20 minutes.',
+      'Steep one herbal pouch in freshly boiled water for 5 to 8 minutes. Enjoy warm in the morning or afternoon as part of an intentional routine for focus, physical vitality, and calm endurance.',
     careInstructions:
-      'Keep sealed in an amber glass jar away from heat sources so natural aromatic oils remain vibrant.',
+      'Reseal pouch tightly after each use and store in a cool, dry cupboard. Offered as a traditional herbal beverage for daily vitality, not a clinical medical treatment.',
     variants: [
-      { id: 'luban-50g', label: '50g Glass Apothecary Jar', weightOrSize: '50g Resin Tears', inStock: true },
-      { id: 'luban-120g', label: '120g Sanctuary Reserve', weightOrSize: '120g + Brass Tongs', inStock: true },
+      { id: 'man-power-30', label: '30 Herbal Tea Pouches', weightOrSize: '30 Tea Pouches', inStock: true },
+      { id: 'man-power-60', label: '60 Pouches Sanctuary Pack', weightOrSize: '2 × 30 Tea Pouches', inStock: true },
     ],
   },
   {
