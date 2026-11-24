@@ -71,7 +71,6 @@ export type ProductCategory =
 export interface ProductVariant {
   id: string;
   label: string;
-  price: number;
   weightOrSize: string;
   inStock: boolean;
 }
@@ -84,7 +83,6 @@ export interface ProductItem {
   categoryLabel: string;
   origin: string;
   botanicalOrMaterial: string;
-  price: number;
   availability: 'In Stock' | 'Small Batch';
   image: string;
   imageAlt: string;
@@ -100,7 +98,6 @@ export interface CartItem {
   variantId: string;
   name: string;
   variantLabel: string;
-  price: number;
   quantity: number;
   image: string;
   origin: string;
@@ -110,16 +107,12 @@ export interface OrderRequest {
   id: string;
   createdAt: string;
   items: CartItem[];
-  subtotal: number;
-  shippingFee: number;
-  total: number;
   fullName: string;
   email: string;
   whatsappNumber: string;
   deliveryMethod: 'courier' | 'sanctuary-pickup';
   shippingAddress: string;
   postalCode: string;
-  settlementMethod: 'invoice' | 'pay-on-delivery';
   blessingNote: string;
   status: 'Pending Sanctuary Confirmation';
 }

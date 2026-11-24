@@ -22,7 +22,7 @@ interface ProductsPageProps {
   onSelectProduct: (product: ProductItem) => void;
 }
 
-type SortOption = 'featured' | 'price-asc' | 'price-desc';
+type SortOption = 'featured' | 'name-asc';
 
 export const ProductsPage: React.FC<ProductsPageProps> = ({
   onBackHome,
@@ -52,11 +52,8 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({
       return matchesCategory && matchesSearch;
     });
 
-    if (sortBy === 'price-asc') {
-      return [...list].sort((a, b) => a.price - b.price);
-    }
-    if (sortBy === 'price-desc') {
-      return [...list].sort((a, b) => b.price - a.price);
+    if (sortBy === 'name-asc') {
+      return [...list].sort((a, b) => a.name.localeCompare(b.name));
     }
     return list;
   }, [selectedCategory, searchQuery, sortBy]);
@@ -118,7 +115,7 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({
             </span>
             <span className="inline-flex items-center gap-2">
               <Package className="w-4 h-4 text-[#D4AF37]" />
-              Complimentary Sanctuary Delivery Over $95
+              Worldwide Sanctuary Courier &amp; Pickup Coordination
             </span>
             <span className="inline-flex items-center gap-2">
               <ShieldCheck className="w-4 h-4 text-[#D4AF37]" />
@@ -157,8 +154,7 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({
                 className="px-3.5 py-2 text-xs font-semibold bg-[#FAF7F2] border border-[#D4AF37]/30 rounded-xl text-[#142B1A] focus:outline-none focus:ring-2 focus:ring-[#D4AF37] cursor-pointer"
               >
                 <option value="featured">Curated Order</option>
-                <option value="price-asc">Price: Low to High</option>
-                <option value="price-desc">Price: High to Low</option>
+                <option value="name-asc">Name: A to Z</option>
               </select>
             </div>
           </div>
@@ -246,16 +242,16 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({
                     </div>
 
                     <div className="pt-3 border-t border-[#EAE2D3] flex items-center justify-between gap-3">
-                      <div>
+                      <div className="min-w-0">
                         <span className="block text-[10px] uppercase tracking-wider text-[#8C7E72]">
-                          From
+                          Sanctuary Edition
                         </span>
-                        <span className="text-lg font-bold text-[#142B1A] tabular-nums">
-                          ${product.price.toFixed(2)}
+                        <span className="text-xs font-semibold text-[#142B1A] truncate block">
+                          {product.variants[0]?.weightOrSize}
                         </span>
                       </div>
 
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-2 shrink-0">
                         <button
                           type="button"
                           onClick={(e) => {
@@ -283,7 +279,7 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({
                           ) : (
                             <>
                               <ShoppingBag className="w-3.5 h-3.5 text-[#D4AF37]" />
-                              <span>Add</span>
+                              <span>Request</span>
                             </>
                           )}
                         </button>

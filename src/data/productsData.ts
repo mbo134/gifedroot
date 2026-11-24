@@ -23,7 +23,6 @@ export const PRODUCTS: ProductItem[] = [
     categoryLabel: 'Incense & Resins',
     origin: 'Eastern Cape Highlands',
     botanicalOrMaterial: 'Wild-harvested dried silver everlasting stems tied with natural raffia',
-    price: 28,
     availability: 'In Stock',
     image: imphephoBundleImg,
     imageAlt: 'Sun-dried Imphepho sage bundles bound with natural raffia twine on woven tray',
@@ -36,8 +35,8 @@ export const PRODUCTS: ProductItem[] = [
     careInstructions:
       'Store in a cool, dry cedar box or linen pouch away from direct kitchen humidity. Keep out of reach of children and never leave smoldering stems unattended.',
     variants: [
-      { id: 'imphepho-single', label: 'Single Ceremonial Bundle', price: 28, weightOrSize: '45g · 18cm', inStock: true },
-      { id: 'imphepho-trio', label: 'Sanctuary Trio Set', price: 72, weightOrSize: '3 × 45g Bundles', inStock: true },
+      { id: 'imphepho-single', label: 'Single Ceremonial Bundle', weightOrSize: '45g · 18cm', inStock: true },
+      { id: 'imphepho-trio', label: 'Sanctuary Trio Set', weightOrSize: '3 × 45g Bundles', inStock: true },
     ],
   },
   {
@@ -48,7 +47,6 @@ export const PRODUCTS: ProductItem[] = [
     categoryLabel: 'Incense & Resins',
     origin: 'Horn of Africa',
     botanicalOrMaterial: 'Hand-sorted golden frankincense resin tears',
-    price: 36,
     availability: 'In Stock',
     image: lubanResinImg,
     imageAlt: 'Golden translucent African Luban frankincense resin tears in small terracotta dish',
@@ -61,8 +59,8 @@ export const PRODUCTS: ProductItem[] = [
     careInstructions:
       'Keep sealed in an amber glass jar away from heat sources so natural aromatic oils remain vibrant.',
     variants: [
-      { id: 'luban-50g', label: '50g Glass Apothecary Jar', price: 36, weightOrSize: '50g Resin Tears', inStock: true },
-      { id: 'luban-120g', label: '120g Sanctuary Reserve', price: 68, weightOrSize: '120g + Brass Tongs', inStock: true },
+      { id: 'luban-50g', label: '50g Glass Apothecary Jar', weightOrSize: '50g Resin Tears', inStock: true },
+      { id: 'luban-120g', label: '120g Sanctuary Reserve', weightOrSize: '120g + Brass Tongs', inStock: true },
     ],
   },
   {
@@ -73,7 +71,6 @@ export const PRODUCTS: ProductItem[] = [
     categoryLabel: 'Living Money Plants',
     origin: 'Sanctuary Nursery',
     botanicalOrMaterial: 'Established living botanical in breathable clay pot with mineral soil',
-    price: 44,
     availability: 'Small Batch',
     image: pileaPlantImg,
     imageAlt: 'Healthy green Pilea Peperomioides money plant in handcrafted terracotta pot',
@@ -86,8 +83,8 @@ export const PRODUCTS: ProductItem[] = [
     careInstructions:
       'Water thoroughly only when the top two inches of soil feel dry. Provide bright, indirect sunlight and rotate a quarter-turn weekly for symmetrical coin-shaped foliage.',
     variants: [
-      { id: 'pilea-desk', label: 'Desk Sanctuary Size', price: 44, weightOrSize: '12cm Clay Pot', inStock: true },
-      { id: 'pilea-hearth', label: 'Mature Hearth Specimen', price: 64, weightOrSize: '16cm Artisan Pot', inStock: true },
+      { id: 'pilea-desk', label: 'Desk Sanctuary Size', weightOrSize: '12cm Clay Pot', inStock: true },
+      { id: 'pilea-hearth', label: 'Mature Hearth Specimen', weightOrSize: '16cm Artisan Pot', inStock: true },
     ],
   },
   {
@@ -98,7 +95,6 @@ export const PRODUCTS: ProductItem[] = [
     categoryLabel: 'Sacred Crafts',
     origin: 'Kumasi Craft Guild, Ghana',
     botanicalOrMaterial: 'Kiln-cured mahogany beads finished with unrefined shea oil and brass spacer',
-    price: 54,
     availability: 'Small Batch',
     image: sankofaBeadsImg,
     imageAlt: 'Hand-carved wooden Sankofa meditation beads with matte brass accents on natural linen',
@@ -111,8 +107,8 @@ export const PRODUCTS: ProductItem[] = [
     careInstructions:
       'Rub lightly with a drop of natural shea or olive oil twice a year to preserve wood luster. Avoid soaking in water.',
     variants: [
-      { id: 'sankofa-wrist', label: 'Wrist Reflection Strand', price: 38, weightOrSize: '18 Beads · Elastic', inStock: true },
-      { id: 'sankofa-altar', label: 'Full 36-Bead Sanctuary Strand', price: 54, weightOrSize: '36 Beads · Linen Cord', inStock: true },
+      { id: 'sankofa-wrist', label: 'Wrist Reflection Strand', weightOrSize: '18 Beads · Elastic', inStock: true },
+      { id: 'sankofa-altar', label: 'Full 36-Bead Sanctuary Strand', weightOrSize: '36 Beads · Linen Cord', inStock: true },
     ],
   },
   {
@@ -123,7 +119,6 @@ export const PRODUCTS: ProductItem[] = [
     categoryLabel: 'Sacred Crafts',
     origin: 'Bolgatanga Pottery Collective',
     botanicalOrMaterial: 'Lead-free natural river clay finished with burnished mineral slip',
-    price: 62,
     availability: 'Small Batch',
     image: clayLibationImg,
     imageAlt: 'Hand-thrown dark terracotta libation vessel with geometric rim etching',
@@ -136,8 +131,8 @@ export const PRODUCTS: ProductItem[] = [
     careInstructions:
       'Rinse gently with warm water and soft cloth only; do not place in a dishwasher or expose to harsh chemical detergents.',
     variants: [
-      { id: 'vessel-medium', label: 'Altar Chalice', price: 62, weightOrSize: '14cm Diameter', inStock: true },
-      { id: 'vessel-hearth', label: 'Ceremonial Gathering Bowl', price: 86, weightOrSize: '20cm Diameter', inStock: true },
+      { id: 'vessel-medium', label: 'Altar Chalice', weightOrSize: '14cm Diameter', inStock: true },
+      { id: 'vessel-hearth', label: 'Ceremonial Gathering Bowl', weightOrSize: '20cm Diameter', inStock: true },
     ],
   },
   {
@@ -148,7 +143,6 @@ export const PRODUCTS: ProductItem[] = [
     categoryLabel: 'Botanical Blends',
     origin: 'Sanctuary Apothecary Guild',
     botanicalOrMaterial: 'Sun-cured rosemary, whole black peppercorns, cloves, sacred guardian root bark, and coarse mineral sea salt',
-    price: 100,
     availability: 'In Stock',
     image: homeProtectionImg,
     imageAlt: 'Amber apothecary jar and dark indigo linen pouch with rosemary, black peppercorns, star anise, cloves, sacred roots, and mineral sea salt for home protection',
@@ -161,8 +155,8 @@ export const PRODUCTS: ProductItem[] = [
     careInstructions:
       'For external threshold placement and aromatic ritual use only—do not ingest. Store the sealed amber jar away from moisture and out of reach of pets or young children.',
     variants: [
-      { id: 'protection-jar', label: 'Doorway Shield Jar & Pouch (90g)', price: 100, weightOrSize: 'Jar + 1 Indigo Pouch', inStock: true },
-      { id: 'protection-homestead', label: 'Four-Corner Homestead Set (220g)', price: 165, weightOrSize: 'Jar + 4 Boundary Pouches', inStock: true },
+      { id: 'protection-jar', label: 'Doorway Shield Jar & Pouch (90g)', weightOrSize: 'Jar + 1 Indigo Pouch', inStock: true },
+      { id: 'protection-homestead', label: 'Four-Corner Homestead Set (220g)', weightOrSize: 'Jar + 4 Boundary Pouches', inStock: true },
     ],
   },
 ];

@@ -24,8 +24,6 @@ interface CartDrawerProps {
   onBrowseProducts: () => void;
 }
 
-const FREE_SHIPPING_THRESHOLD = 95;
-const STANDARD_SHIPPING = 12;
 const ORDERS_STORAGE_KEY = 'gifted_roots_orders';
 
 export const CartDrawer: React.FC<CartDrawerProps> = ({
@@ -44,18 +42,13 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
   const [deliveryMethod, setDeliveryMethod] = useState<'courier' | 'sanctuary-pickup'>('courier');
   const [shippingAddress, setShippingAddress] = useState('');
   const [postalCode, setPostalCode] = useState('');
-  const [settlementMethod, setSettlementMethod] = useState<'invoice' | 'pay-on-delivery'>('invoice');
   const [blessingNote, setBlessingNote] = useState('');
   const [confirmedOrder, setConfirmedOrder] = useState<OrderRequest | null>(null);
   const [copiedId, setCopiedId] = useState(false);
 
   if (!isOpen) return null;
 
-  const subtotal = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
-  const qualifiesForFreeShipping = subtotal >= FREE_SHIPPING_THRESHOLD || deliveryMethod === 'sanctuary-pickup';
-  const shippingFee = items.length === 0 ? 0 : qualifiesForFreeShipping ? 0 : STANDARD_SHIPPING;
-  const total = subtotal + shippingFee;
-  const amountToFreeShipping = Math.max(0, FREE_SHIPPING_THRESHOLD - subtotal);
+  const totalItemsCount = items.reduce((sum, item) => sum + item.quantity, 0);
 
   const handlePlaceOrder = (e: React.FormEvent) => {
     e.preventDefault();
@@ -66,16 +59,12 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
       id: orderId,
       createdAt: new Date().toISOString(),
       items: [...items],
-      subtotal,
-      shippingFee,
-      total,
       fullName: fullName.trim(),
       email: email.trim(),
       whatsappNumber: whatsappNumber.trim(),
       deliveryMethod,
       shippingAddress: deliveryMethod === 'courier' ? shippingAddress.trim() : 'Sanctuary Collection',
       postalCode: deliveryMethod === 'courier' ? postalCode.trim() : 'N/A',
-      settlementMethod,
       blessingNote: blessingNote.trim(),
       status: 'Pending Sanctuary Confirmation',
     };
@@ -109,18 +98,18 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
 
   const buildOrderWhatsAppUrl = (order: OrderRequest) => {
     const lines = order.items
-      .map((i) => `• ${i.quantity}x ${i.name} (${i.variantLabel}) - $${(i.price * i.quantity).toFixed(2)}`)
+      .map((i) => `• ${i.quantity}x ${i.name} (${i.variantLabel})`)
       .join('\n');
-    const message = `Greetings Gifted Roots Sanctuary! I have placed Order ${order.id}:\n\n${lines}\n\nTotal: $${order.total.toFixed(2)}\nName: ${order.fullName}\nDelivery: ${order.deliveryMethod === 'courier' ? `${order.shippingAddress}, ${order.postalCode}` : 'Sanctuary Pickup'}`;
+    const message = `Greetings Gifted Roots Sanctuary! I have submitted Offering Request ${order.id}:\n\n${lines}\n\nName: ${order.fullName}\nDelivery: ${order.deliveryMethod === 'courier' ? `${order.shippingAddress}, ${order.postalCode}` : 'Sanctuary Pickup'}`;
     return `https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`;
   };
 
   const buildOrderMailtoUrl = (order: OrderRequest) => {
-    const subject = `Sanctuary Order Request ${order.id} - ${order.fullName}`;
+    const subject = `Sanctuary Offering Request ${order.id} - ${order.fullName}`;
     const lines = order.items
-      .map((i) => `- ${i.quantity}x ${i.name} (${i.variantLabel}): $${(i.price * i.quantity).toFixed(2)}`)
+      .map((i) => `- ${i.quantity}x ${i.name} (${i.variantLabel})`)
       .join('\n');
-    const body = `Order Reference: ${order.id}\nCustomer: ${order.fullName}\nEmail: ${order.email}\nWhatsApp: ${order.whatsappNumber}\nDelivery: ${order.deliveryMethod === 'courier' ? `${order.shippingAddress}, ${order.postalCode}` : 'Sanctuary Pickup'}\n\nItems:\n${lines}\n\nTotal: $${order.total.toFixed(2)}`;
+    const body = `Request Reference: ${order.id}\nName: ${order.fullName}\nEmail: ${order.email}\nWhatsApp: ${order.whatsappNumber}\nDelivery: ${order.deliveryMethod === 'courier' ? `${order.shippingAddress}, ${order.postalCode}` : 'Sanctuary Pickup'}\n\nRequested Offerings:\n${lines}`;
     return `mailto:giftedroot6@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   };
 
@@ -129,7 +118,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
       className="fixed inset-0 z-50 flex justify-end bg-[#0E1E12]/65 backdrop-blur-xs"
       role="dialog"
       aria-modal="true"
-      aria-label="Sacred Bag and Order Checkout"
+      aria-label="Sacred Bag and Offering Reservation"
       onClick={resetAndClose}
     >
       <div
@@ -143,7 +132,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
             <h2 className="font-serif text-lg font-bold">
               {step === 'bag' && 'Your Sacred Bag'}
               {step === 'checkout' && 'Delivery & Reservation'}
-              {step === 'confirmed' && 'Order Request Received'}
+              {step === 'confirmed' && 'Request Received'}
             </h2>
           </div>
           <button
@@ -165,7 +154,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                   Blessings, {confirmedOrder.fullName}
                 </h3>
                 <p className="text-xs text-[#4A3D33] leading-relaxed">
-                  Your sanctuary order request has been recorded. Our coordinator will confirm dispatch or pickup timing promptly.
+                  Your sanctuary offering request has been recorded. Our coordinator will confirm preparation and delivery or pickup timing promptly.
                 </p>
                 <div className="pt-2 flex items-center justify-center gap-2">
                   <span className="px-3 py-1 bg-[#FFFFFF] border border-[#D4AF37]/40 rounded-lg text-xs font-bold text-[#142B1A] tabular-nums">
@@ -185,7 +174,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                 </div>
               </div>
 
-              {/* Order Summary Receipt */}
+              {/* Reserved Summary Receipt */}
               <div className="p-4 rounded-2xl bg-[#F4EFE6] border border-[#D4AF37]/25 space-y-3 text-xs">
                 <p className="font-bold uppercase tracking-wider text-[#7A4628]">
                   Reserved Offerings
@@ -202,16 +191,12 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                         </p>
                         <p className="text-[11px] text-[#55473C]">{item.variantLabel}</p>
                       </div>
-                      <span className="font-bold text-[#142B1A] tabular-nums">
-                        ${(item.price * item.quantity).toFixed(2)}
+                      <span className="text-[11px] font-semibold text-[#7A4628]">
+                        Reserved
                       </span>
                     </li>
                   ))}
                 </ul>
-                <div className="pt-3 border-t border-[#D4AF37]/25 flex justify-between font-bold text-sm text-[#142B1A] tabular-nums">
-                  <span>Total Reserved</span>
-                  <span>${confirmedOrder.total.toFixed(2)}</span>
-                </div>
               </div>
 
               {/* Direct Handoff Buttons */}
@@ -223,7 +208,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                   className="w-full py-3 px-4 bg-[#25D366] hover:bg-[#20ba5a] text-white text-xs font-bold rounded-xl flex items-center justify-center gap-2 transition-colors"
                 >
                   <MessageCircle className="w-4 h-4" />
-                  <span>Send Order Receipt via WhatsApp</span>
+                  <span>Send Request Details via WhatsApp</span>
                 </a>
                 <a
                   href={buildOrderMailtoUrl(confirmedOrder)}
@@ -267,25 +252,13 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
             </div>
           ) : step === 'bag' ? (
             <div className="space-y-5">
-              {/* Free Shipping Progress */}
-              <div className="p-3.5 rounded-xl bg-[#F4EFE6] border border-[#D4AF37]/25 space-y-2">
+              {/* Sanctuary Coordination Note */}
+              <div className="p-3.5 rounded-xl bg-[#F4EFE6] border border-[#D4AF37]/25">
                 <div className="flex items-center gap-2 text-xs font-medium text-[#142B1A]">
                   <Package className="w-4 h-4 text-[#7A4628] shrink-0" />
-                  {amountToFreeShipping > 0 ? (
-                    <span>
-                      Add <strong className="tabular-nums">${amountToFreeShipping.toFixed(2)}</strong> more for complimentary courier delivery.
-                    </span>
-                  ) : (
-                    <span>You qualify for complimentary sanctuary courier delivery.</span>
-                  )}
-                </div>
-                <div className="w-full h-1.5 bg-[#EAE2D3] rounded-full overflow-hidden">
-                  <div
-                    className="h-full bg-[#142B1A] transition-all duration-300"
-                    style={{
-                      width: `${Math.min(100, (subtotal / FREE_SHIPPING_THRESHOLD) * 100)}%`,
-                    }}
-                  />
+                  <span>
+                    Personal courier or sanctuary pickup arranged directly upon confirmation.
+                  </span>
                 </div>
               </div>
 
@@ -345,8 +318,8 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                             <Plus className="w-3 h-3" />
                           </button>
                         </div>
-                        <span className="text-sm font-bold text-[#142B1A] tabular-nums">
-                          ${(item.price * item.quantity).toFixed(2)}
+                        <span className="text-[11px] font-semibold text-[#55473C]">
+                          {item.origin}
                         </span>
                       </div>
                     </div>
@@ -471,36 +444,6 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                 )}
 
                 <div>
-                  <span className="block text-xs font-semibold text-[#142B1A] mb-1.5">
-                    Settlement Method
-                  </span>
-                  <div className="grid grid-cols-2 gap-2">
-                    <button
-                      type="button"
-                      onClick={() => setSettlementMethod('invoice')}
-                      className={`py-2 px-3 rounded-xl text-xs font-semibold border transition-colors cursor-pointer ${
-                        settlementMethod === 'invoice'
-                          ? 'bg-[#142B1A] text-[#FAF7F2] border-[#D4AF37]'
-                          : 'bg-[#FFFFFF] text-[#4A3D33] border-[#D4AF37]/30'
-                      }`}
-                    >
-                      Sanctuary Invoice
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => setSettlementMethod('pay-on-delivery')}
-                      className={`py-2 px-3 rounded-xl text-xs font-semibold border transition-colors cursor-pointer ${
-                        settlementMethod === 'pay-on-delivery'
-                          ? 'bg-[#142B1A] text-[#FAF7F2] border-[#D4AF37]'
-                          : 'bg-[#FFFFFF] text-[#4A3D33] border-[#D4AF37]/30'
-                      }`}
-                    >
-                      On Delivery / Pickup
-                    </button>
-                  </div>
-                </div>
-
-                <div>
                   <label className="block text-xs font-semibold text-[#142B1A] mb-1">
                     Optional Household Intention or Gift Note
                   </label>
@@ -517,27 +460,21 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
           )}
         </div>
 
-        {/* Drawer Footer Totals & Action */}
+        {/* Drawer Footer Summary & Action */}
         {items.length > 0 && step !== 'confirmed' && (
           <div className="p-5 bg-[#F4EFE6] border-t border-[#D4AF37]/30 space-y-3 shrink-0">
             <div className="space-y-1.5 text-xs text-[#4A3D33]">
               <div className="flex justify-between">
-                <span>Subtotal</span>
+                <span>Selected Offerings</span>
                 <span className="font-semibold text-[#142B1A] tabular-nums">
-                  ${subtotal.toFixed(2)}
+                  {totalItemsCount} {totalItemsCount === 1 ? 'item' : 'items'}
                 </span>
               </div>
               <div className="flex justify-between">
-                <span>
-                  {deliveryMethod === 'sanctuary-pickup' ? 'Sanctuary Pickup' : 'Insured Courier'}
+                <span>Coordination</span>
+                <span className="font-semibold text-[#142B1A]">
+                  {deliveryMethod === 'sanctuary-pickup' ? 'Sanctuary Pickup' : 'Courier Arranged'}
                 </span>
-                <span className="font-semibold text-[#142B1A] tabular-nums">
-                  {shippingFee === 0 ? 'Complimentary' : `$${shippingFee.toFixed(2)}`}
-                </span>
-              </div>
-              <div className="pt-2 border-t border-[#D4AF37]/20 flex justify-between text-base font-bold text-[#142B1A] tabular-nums">
-                <span>Total</span>
-                <span>${total.toFixed(2)}</span>
               </div>
             </div>
 
@@ -547,7 +484,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                 onClick={() => setStep('checkout')}
                 className="w-full py-3.5 px-5 bg-[#142B1A] hover:bg-[#1B3824] text-[#FAF7F2] text-sm font-semibold rounded-xl border border-[#D4AF37]/40 shadow-sm flex items-center justify-center gap-2 transition-colors cursor-pointer"
               >
-                <span>Proceed to Order Reservation</span>
+                <span>Proceed to Offering Request</span>
                 <ArrowRight className="w-4 h-4 text-[#D4AF37]" />
               </button>
             ) : (
@@ -556,7 +493,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                 form="sanctuary-checkout-form"
                 className="w-full py-3.5 px-5 bg-[#142B1A] hover:bg-[#1B3824] text-[#FAF7F2] text-sm font-semibold rounded-xl border border-[#D4AF37]/40 shadow-sm flex items-center justify-center gap-2 transition-colors cursor-pointer"
               >
-                <span>Confirm Order Request · ${total.toFixed(2)}</span>
+                <span>Submit Offering Request</span>
                 <CheckCircle2 className="w-4 h-4 text-[#D4AF37]" />
               </button>
             )}

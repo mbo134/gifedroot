@@ -65,7 +65,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
           </button>
         </div>
 
-        {/* Scrollable Contiguous Purchase Layout */}
+        {/* Scrollable Contiguous Layout */}
         <div className="overflow-y-auto flex-1 p-5 sm:p-7">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-7 items-start">
             {/* Left Column: 4:3 Product Image + Material Provenance */}
@@ -90,7 +90,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
               </div>
             </div>
 
-            {/* Right Column: Contiguous Purchase Module */}
+            {/* Right Column: Contiguous Offering Selection Module */}
             <div className="md:col-span-6 space-y-5">
               <div className="space-y-1.5">
                 <div className="flex items-center justify-between gap-2">
@@ -107,9 +107,6 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                 >
                   {product.name}
                 </h2>
-                <p className="text-2xl font-bold text-[#142B1A] tabular-nums pt-1">
-                  ${activeVariant.price.toFixed(2)}
-                </p>
               </div>
 
               <p className="text-sm text-[#4A3D33] leading-relaxed">
@@ -140,11 +137,11 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                       >
                         <div className="text-xs font-semibold">{variant.label}</div>
                         <div
-                          className={`text-[11px] mt-0.5 tabular-nums ${
+                          className={`text-[11px] mt-0.5 ${
                             selected ? 'text-[#D4AF37]' : 'text-[#7A4628]'
                           }`}
                         >
-                          {variant.weightOrSize} · ${variant.price.toFixed(2)}
+                          {variant.weightOrSize}
                         </div>
                       </button>
                     );
@@ -152,7 +149,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                 </div>
               </div>
 
-              {/* Quantity Stepper & Primary Add to Cart CTA */}
+              {/* Quantity Stepper & Primary Add to Bag CTA */}
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-1">
                 <div className="inline-flex items-center justify-between border border-[#D4AF37]/35 rounded-xl bg-[#FFFFFF] px-2 py-1.5 sm:w-32">
                   <button
@@ -189,9 +186,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                   ) : (
                     <>
                       <ShoppingBag className="w-4 h-4 text-[#D4AF37]" />
-                      <span>
-                        Add to Bag · ${(activeVariant.price * quantity).toFixed(2)}
-                      </span>
+                      <span>Add to Request Bag</span>
                     </>
                   )}
                 </button>
@@ -208,7 +203,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                     }}
                     className="font-bold underline hover:text-[#7A4628] cursor-pointer"
                   >
-                    Open Bag &amp; Checkout
+                    Open Bag &amp; Request
                   </button>
                 </div>
               )}

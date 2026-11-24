@@ -132,7 +132,6 @@ export default function App() {
           variantId: variant.id,
           name: product.name,
           variantLabel: variant.label,
-          price: variant.price,
           quantity,
           image: product.image,
           origin: product.origin,
@@ -276,8 +275,8 @@ export default function App() {
                             {product.name}
                           </h3>
                         </div>
-                        <span className="text-base font-bold text-[#D4AF37] tabular-nums shrink-0">
-                          ${product.price.toFixed(2)}
+                        <span className="text-xs font-semibold text-[#D4AF37] shrink-0">
+                          View Details
                         </span>
                       </div>
                     </div>
