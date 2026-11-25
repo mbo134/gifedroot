@@ -34,7 +34,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onExploreServices }) 
 
             {/* Narrative Subtitle */}
             <p className="text-base sm:text-lg text-[#E0D8CB] font-light leading-relaxed max-w-2xl">
-              Gifted Roots brings time-honored African ancestral guidance, sacred botanical heritage, and mindful contemplation to seekers of clarity. We provide a dignified, ethical sanctuary where ancient memory illuminates modern life paths.
+              Gifted Roots brings time-honored African ancestral guidance, sacred botanical heritage, and mindful contemplation to seekers of clarity. We provide a dignified, ethical sanctuary where ancient memory illuminates modern life paths—offering traditional bad luck removal, spiritual cleansing, and negative spell breaking to restore peace and forward balance.
             </p>
 
             {/* CTAs */}

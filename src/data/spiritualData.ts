@@ -126,6 +126,24 @@ export const SERVICES: ServiceItem[] = [
     whatToExpect: 'We listen quietly to the full story of your bond, assess spiritual disharmony or external strain around the relationship, and guide you through ancestral prayer, reconciliation practices, and protective home rituals.',
     preparation: 'Hold a clear, honest intention for peace, mutual respect, and renewed affection. Keep your partner’s full first name in mind for our quiet reflection.',
     sacredSymbol: 'Akoma'
+  },
+  {
+    id: 'bad-luck-spell-breaking',
+    title: 'Bad Luck Removal & Spell Breaking',
+    category: 'botanical',
+    shortDesc: 'Traditional spiritual cleansing, bad luck removal, and protective ancestral rites to break negative spells, heavy setbacks, and envious interference.',
+    fullDesc: 'When repeated misfortune, unexplained setbacks, or jealous interference weigh upon your home, work, or spirit, our traditional spiritual cleansing offers quiet protection and release. Using ancestral prayer, sacred herbs, and boundary rituals, we help break negative patterns and restore calm clarity.',
+    duration: '60 minutes',
+    format: ['Secure Video Call', 'Confidential Phone', 'Sanctuary Visit'],
+    keyBenefits: [
+      'Traditional cleansing to release lingering bad luck and heavy energy',
+      'Ancestral protection rites focused on breaking negative spells and ill wishes',
+      'Clearing stubborn blockages affecting home peace, work, or personal momentum',
+      'Guided threshold and botanical protection practices to maintain lasting serenity'
+    ],
+    whatToExpect: 'We listen confidentially to the recurring obstacles you have faced, conduct traditional spiritual discernment, and guide cleansing prayers and herbal protection steps tailored to your household.',
+    preparation: 'Set aside uninterrupted quiet time in a calm space. Have fresh clean water nearby and write down the specific patterns or setbacks you wish to release.',
+    sacredSymbol: 'Gye Nyame'
   }
 ];
 
